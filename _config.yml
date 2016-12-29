@@ -7,17 +7,53 @@
 
 # Site settings
 title: Your awesome title
-email: your-email@domain.com
+email: aplaza@liquidthink.net
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "http://127.0.0.1:4000" # the base hostname & protocol for your site
+twitter_username: liquid_think
+github_username: InsidiousMind
 
 # Build settings
 markdown: kramdown
 source: src
 destination: public
+
+assets:
+  compress:
+    css: sass
+    js: uglifier
+
+  autowrite: true
+  cache: .asset-cache
+  cache_type: filesystem
+  cdn: www.example.com
+  skip_baseurl_with_cdn: false
+  skip_prefix_with_cdn: false
+  prefix: "/assets"
+  digest: true
+
+  assets:
+    - "*.png"
+    - "bundle.css"
+
+  sources:
+    - src/_assets/css
+    - src/_assets/fonts
+    - src/_assets/img
+    - src/_assets/js
+    - src/_assets/projects
+
+  features:
+    liquid: false
+    integrity: true
+    automatic_img_size: true
+    automatic_img_alt : true
+
+exclude: ['node_modules', 'Gemfile', '.asset-cache']
+
+gems:
+  - jekyll-assets

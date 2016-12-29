@@ -1,6 +1,10 @@
 _site
 .sass-cache
 .jekyll-metadata
+.jshintrc
 public
 node_modules
 src/assets/javascripts/bundle.js
+Gemfile.lock
+src/.asset-cache
+webpack/npm-debug.log
