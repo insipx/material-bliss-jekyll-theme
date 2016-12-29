@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import {render} from 'react-dom';
-import Hello from './components/Hello';
+import ReactDOM, {render} from 'react-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import TestReactComponent from './components/TestReactComponent';
 
 class App extends Component {
   render() {
     return (
-      <Hello />
+      <MuiThemeProvider>
+        <TestReactComponent />
+      </MuiThemeProvider>
     );
   }
 }
