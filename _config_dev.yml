@@ -1,0 +1,33 @@
+
+
+assets:
+  compress:
+    css: false
+    js: false
+
+  autowrite: true
+  cache: .asset-cache
+  cache_type: filesystem
+  cdn: www.example.com
+  skip_baseurl_with_cdn: false
+  skip_prefix_with_cdn: false
+  prefix: "/assets"
+  digest: true
+
+  assets:
+    - "*.png"
+    - "bundle.css"
+
+  sources:
+    - src/_assets/css
+    - src/_assets/fonts
+    - src/_assets/img
+    - src/_assets/js
+    - src/_assets/projects
+
+  features:
+    liquid: false
+    integrity: true
+    automatic_img_size: true
+    automatic_img_alt : true
+

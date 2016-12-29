@@ -25,7 +25,7 @@ destination: public
 assets:
   compress:
     css: sass
-    js: uglifier
+    js: uglifyjs
 
   autowrite: true
   cache: .asset-cache
@@ -53,7 +53,7 @@ assets:
     automatic_img_size: true
     automatic_img_alt : true
 
-exclude: ['node_modules', 'Gemfile', '.asset-cache']
+exclude: ['node_modules', 'Gemfile', '.asset-cache', 'build-prod.sh', 'build-dev.sh']
 
 gems:
   - jekyll-assets

@@ -1,4 +1,9 @@
+
+const webpack = require('webpack');
+
 module.exports = {
+  //devtool: 'cheap-module-source-map',
+  devtool: 'eval',
   // webpack folder's entry js - excluded from jekll's build process.
   entry: "./webpack/entry.js",
   output: {
@@ -6,7 +11,14 @@ module.exports = {
       path: 'src/_assets/js/',
       filename: "bundle.js"
   },
-  module: {
+    module: {
+  /*  plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+          'NODE_ENV' : JSON.stringify('production') 
+        } 
+      })
+    ],*/
     loaders: [
       {
         test: /\.jsx?$/,
@@ -19,3 +31,5 @@ module.exports = {
     ]
   }
 };
+
+
