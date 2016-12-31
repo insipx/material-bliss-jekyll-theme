@@ -1,24 +1,27 @@
+var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+var webpack = require('webpack');
+var fs = require('fs');
 
-const webpack = require('webpack');
-const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+const paths = ['/'];
 
-const paths = [
-  '/',
-];
 
 module.exports = {
+
+  entry: {
+    entry: './react-dev/router.js'
+  },
+
   //devtool: 'cheap-module-source-map',
   devtool: 'eval',
   // webpack folder's entry js - excluded from jekll's build process.
-  entry: {
-    'main': './react-dev/entry.js'
-  },
 
   output: {
     // we're going to put the generated file in the assets folder so jekyll will grab it.
       filename: 'bundle.js',
       path: 'src/_assets/js/',
-      libraryTarget: 'umd'
+      //need to compile to UMD or CommonJS so it can be requred in a Node context
+      libraryTarget: 'umd',
+      publicPath: '/'
   },
     module: {
       loaders: [
@@ -38,11 +41,7 @@ module.exports = {
             'NODE_ENV': JSON.stringify('production')
           }
         }),
-        new StaticSiteGeneratorPlugin('main', paths, {
-          //properties assigned here are merged into 'locals'
-          //passed to exported render function
-          greet: 'Hello'
-        })
+        new StaticSiteGeneratorPlugin('main', paths, { greet: 'Hello' })
       ]
     }
 };

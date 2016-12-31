@@ -1,7 +1,12 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
+import NotFound from './components/notFound';
+
 import App from './components/app';
+import Menu from './components/Menu';
 
 export default (
-  <Route path="/" component={App} />
+  <Route component={App} >
+    <IndexRoute path='/' component={NotFound} />
+  </Route>
 );

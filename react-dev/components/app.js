@@ -19,6 +19,7 @@ export default class App extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
           <Menu />
+          {this.props.children}
       </MuiThemeProvider>
     );
   }
