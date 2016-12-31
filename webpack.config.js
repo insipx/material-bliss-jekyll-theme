@@ -7,9 +7,7 @@ const paths = ['/'];
 
 module.exports = {
 
-  entry: {
-    'main': './react-dev/router.js'
-  },
+  entry: './react-dev/router.js',
 
   //devtool: 'cheap-module-source-map',
   devtool: 'eval',
@@ -21,7 +19,6 @@ module.exports = {
       path: 'src/_assets/js/',
       //need to compile to UMD or CommonJS so it can be requred in a Node context
       libraryTarget: 'umd',
-      publicPath: '/'
   },
     module: {
       loaders: [
@@ -41,7 +38,7 @@ module.exports = {
             'NODE_ENV': JSON.stringify('production')
           }
         }),
-        new StaticSiteGeneratorPlugin('main', paths, { greet: 'Hello' })
+        new StaticSiteGeneratorPlugin('bundle.js', paths, { greet: 'Hello' })
       ]
     }
 };

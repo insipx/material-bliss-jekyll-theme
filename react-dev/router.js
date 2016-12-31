@@ -27,9 +27,8 @@ if (typeof document !== 'undefined') {
 }
 
 export default (locals, callback) => {
-    console.log(locals.path);
-    const history = createMemoryHistory();
-    const location = history.createLocation(locals.path);
+    let history = createMemoryHistory();
+    let location = history.createLocation(locals.path);
     console.log(locals.path);
 
   return match({
