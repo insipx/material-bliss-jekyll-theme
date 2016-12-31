@@ -8,7 +8,7 @@ const paths = ['/'];
 module.exports = {
 
   entry: {
-    entry: './react-dev/router.js'
+    'main': './react-dev/router.js'
   },
 
   //devtool: 'cheap-module-source-map',
