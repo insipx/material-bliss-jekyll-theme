@@ -7,7 +7,7 @@ export default class Root extends Component {
     const scripts = ['../../src/_assets/js/bundle.js'];
 
     return (
-      <Html title="FUCK THIS" scripts={scripts}>
+      <Html title="BLAH" scripts={scripts}>
         <div id='app'>
           {this.props.children}
         </div>
