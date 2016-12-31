@@ -1,16 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Menu from './components/Menu';
+//import ReactDOMServer from 'react-dom/server';
+import { browserHistory } from 'history';
+import { Router } from 'react-router';
 
-class App extends Component {
-  render() {
-    return (
-      <MuiThemeProvider>
-          <Menu />
-      </MuiThemeProvider>
-    );
-  }
-}
+import routes from './routes';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Router history={browserHistory} routes={routes} />, document.getElementById('root'));
+
+  /*export default (locals, callback) => {
+    const history = createMemoryHistory();
+    const location = history.createLocation(locals.path);
+
+    match({ routes, location }, (error, redirectLocation, renderProps) => {
+      callback(null, template({
+        html: ReactDOMServer.renderToString(<RoutingContext {...renderProps} />),
+        assets: locals.assets
+      }));
+    });
+  };*/
