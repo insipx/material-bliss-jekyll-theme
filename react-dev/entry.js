@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import ReactDOM, {render} from 'react-dom';
+import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import TestReactComponent from './components/TestReactComponent';
+import Menu from './components/Menu';
 
 class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <TestReactComponent />
+          <Menu />
       </MuiThemeProvider>
     );
   }
 }
 
-render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
