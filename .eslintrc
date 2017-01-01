@@ -1,3 +1,4 @@
 {
-  "extends": "rallycoding"
+  "extends": "rallycoding",
+  "allowTemplateLiterals": true
 }
