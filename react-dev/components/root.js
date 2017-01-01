@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Html from 'react-html-document';
-import Router, { RouteHandler } from 'react-router';
 
 export default class Root extends Component {
   render() {
@@ -18,7 +17,7 @@ export default class Root extends Component {
       { name: 'twitter:title', content: 'Vote for Bernie' },
       { name: 'twitter:description', content: description },
       { httpEquiv: 'content-type', content: 'text/html; charset=utf-8' }
-    ]
+  ];
     const scripts = ['../../src/_assets/js/bundle.js'];
 
     return (

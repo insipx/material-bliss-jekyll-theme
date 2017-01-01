@@ -8,5 +8,5 @@ export default function ({ html }) {
     </div>
   </body>
 </html>
-`
+`;
 }

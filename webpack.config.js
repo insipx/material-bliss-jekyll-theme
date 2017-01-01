@@ -1,8 +1,8 @@
-var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+//var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 var webpack = require('webpack');
 var fs = require('fs');
+var path = require('path');
 
-const paths = ['/'];
 
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
   entry: './react-dev/router.js',
 
   //devtool: 'cheap-module-source-map',
-  //devtool: 'eval',
+  devtool: 'eval',
   // webpack folder's entry js - excluded from jekll's build process.
 
   output: {
@@ -18,7 +18,6 @@ module.exports = {
       filename: 'bundle.js',
       path: 'src/_assets/js/',
       //need to compile to UMD or CommonJS so it can be requred in a Node context
-      libraryTarget: 'umd',
   },
     module: {
       loaders: [
@@ -29,16 +28,26 @@ module.exports = {
           query: {
             presets: ['react', 'es2015']
           }
+        },
+        {
+          test: /\.json$/,
+          loader: 'json-loader' 
         }
       ],
 
       plugins: [
-        new webpack.DefinePlugin({
+/*        new webpack.DefinePlugin({
           'process.env': {
             'NODE_ENV': JSON.stringify('production')
           }
-        }),
-        new StaticSiteGeneratorPlugin('main', paths)
+        })*/
+//        new StaticSiteGeneratorPlugin('bundle.js', paths)
       ]
+    },
+    node: {
+      console: true,
+      fs: 'empty',
+      net: 'empty',
+      tls: 'empty' 
     }
 };

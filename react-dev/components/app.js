@@ -14,7 +14,7 @@ const muiTheme = getMuiTheme(darkBaseTheme, {
   },
   });
 
-export default class App extends Component {
+/*export default class App extends Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
@@ -23,4 +23,16 @@ export default class App extends Component {
       </MuiThemeProvider>
     );
   }
+}*/
+
+export default class App extends Component {
+    render() {
+        return (
+            <html>
+                <body>
+                    <title>Hello!. Gay.</title>
+                </body>
+            </html>
+        );
+    }
 }
