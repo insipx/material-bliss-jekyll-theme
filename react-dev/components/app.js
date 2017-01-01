@@ -6,7 +6,7 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-import Menu from '../components/Menu';
+import Menu from '../components/menu';
 
 const muiTheme = getMuiTheme(darkBaseTheme, {
   appBar: {
@@ -14,25 +14,12 @@ const muiTheme = getMuiTheme(darkBaseTheme, {
   },
   });
 
-/*export default class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
           <Menu />
-          {this.props.children}
       </MuiThemeProvider>
     );
   }
-}*/
-
-export default class App extends Component {
-    render() {
-        return (
-            <html>
-                <body>
-                    <title>Hello!. Gay.</title>
-                </body>
-            </html>
-        );
-    }
 }

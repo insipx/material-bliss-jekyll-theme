@@ -1,14 +1,14 @@
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Route } from 'react-router';
 
 import App from './components/app';
+import NotFound from './components/notFound';
 
-module.exports = (
-  <Route component={App} >
-    <IndexRoute path='/' component={App} />
+export default (
+  <Route path="/" component={App} >
+    <Route component={NotFound} path="*" />
   </Route>
 );
-
 
 /*export default (
   <Route component={App} >

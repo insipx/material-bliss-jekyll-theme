@@ -7,7 +7,8 @@
     "webpack": "webpack --progress --colors",
     "dev": "webpack-dev-server --progress --colors",
     "start": "npm run dev",
-    "build": "webpack --progress -p --colors"
+    "build": "webpack --progress -p --colors",
+    "jekyll": "webpack --progress -p --colors -w"
   },
   "repository": {
     "type": "git",
@@ -35,19 +36,20 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "babel-cli": "^6.18.0",
     "ejs": "^2.5.5",
     "eslint-config-rallycoding": "^3.1.0",
     "fs": "0.0.1-security",
     "fs-extra": "^1.0.0",
     "history": "^4.5.0",
+    "js-beautify": "^1.6.7",
     "lodash": "^4.17.3",
     "material-ui": "^0.16.6",
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
     "react-html-document": "^3.1.0",
     "react-redux": "^5.0.1",
     "react-router": "^3.0.0",
-    "react-router-to-array": "^0.1.2",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
     "redux-form": "^6.4.3",
