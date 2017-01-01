@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+//it's safe to use dangerouslySetInnerHTML because all components under /pages
+//are going to be statically generated and placed in a position for Jekyll to use
 
 class Post extends Component {
 
