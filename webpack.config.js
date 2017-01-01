@@ -10,7 +10,7 @@ module.exports = {
   entry: './react-dev/router.js',
 
   //devtool: 'cheap-module-source-map',
-  devtool: 'eval',
+  //devtool: 'eval',
   // webpack folder's entry js - excluded from jekll's build process.
 
   output: {
@@ -38,7 +38,7 @@ module.exports = {
             'NODE_ENV': JSON.stringify('production')
           }
         }),
-        new StaticSiteGeneratorPlugin('bundle.js', paths, { greet: 'Hello' })
+        new StaticSiteGeneratorPlugin('main', paths)
       ]
     }
 };

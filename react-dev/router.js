@@ -21,12 +21,34 @@ import Root from './components/root';
 /*ReactDOM.render(
   <Router history={browserHistory} routes={routes} />, document.getElementById('root'));
   */
+  var createElement = function (Component, props) {
+   return <Component key={new Date().getTime()} {...props} />;
+ };
+
+
 if (typeof document !== 'undefined') {
   const root = document.getElementById('root');
-  ReactDOM.render(<Router history={browserHistory} routes={routes} />, root);
+  ReactDOM.render(<Router history={browserHistory} routes={routes} createElement={createElement} />, root);
 }
 
-export default (locals, callback) => {
+module.exports = function (locals, callback) {
+  var history = createMemoryHistory();
+  var location = history.createLocation(locals.path);
+
+  return match({
+    routes: routes,
+    location: location }, function (error, redirectLocation, renderProps) {
+      var html = ReactDOMServer.renderToStaticMarkup(
+        <Root location={location}>
+          <RouterContext {...renderProps} />
+        </Root>
+      );
+      return callback(null, html);
+    });
+  };
+
+
+/*export default (locals, callback) => {
     let history = createMemoryHistory();
     let location = history.createLocation(locals.path);
     console.log(locals.path);
@@ -43,3 +65,4 @@ export default (locals, callback) => {
       return callback(null, html);
     });
   };
+*/
