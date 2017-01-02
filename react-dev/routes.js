@@ -2,16 +2,9 @@ import React from 'react';
 import { Route } from 'react-router';
 
 import App from './components/app';
-import NotFound from './components/notFound';
-
+//posts route should match whatever is in the Jekyll config
 export default (
   <Route path="/" component={App} >
-    <Route component={NotFound} path="*" />
+    <Route path="posts/:title" />
   </Route>
 );
-
-/*export default (
-  <Route component={App} >
-    <IndexRoute path='/' component={NotFound} />
-  </Route>
-);*/
