@@ -37,6 +37,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "babel-cli": "^6.18.0",
+    "babel-preset-stage-1": "^6.16.0",
     "ejs": "^2.5.5",
     "eslint-config-rallycoding": "^3.1.0",
     "fs": "0.0.1-security",

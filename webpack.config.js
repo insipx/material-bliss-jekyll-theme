@@ -26,7 +26,7 @@ module.exports = {
           exclude: /(node_modules)/,
           loader: 'babel', // 'babel-loader' is also a legal name to reference
           query: {
-            presets: ['react', 'es2015']
+            presets: ['react', 'es2015', 'stage-1']
           }
         },
         {
@@ -43,6 +43,13 @@ module.exports = {
         })
 //        new StaticSiteGeneratorPlugin('bundle.js', paths)
       ]
+    },
+    resolve: {
+      extensions: ['', '.js', '.jsx'] 
+    },
+    devServer: {
+      historyApiFallback: true,
+      contentBase:'./react-dev/'
     },
     node: {
       console: true,

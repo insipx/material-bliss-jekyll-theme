@@ -21,9 +21,12 @@ const muiTheme = getMuiTheme(darkBaseTheme, {
 export default class App extends Component {
   render() {
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>
-          <Menu />
-      </MuiThemeProvider>
+      <div>
+        <MuiThemeProvider muiTheme={muiTheme}>
+            <Menu />
+        </MuiThemeProvider>
+        {this.props.children}
+      </div>
     );
   }
 }
