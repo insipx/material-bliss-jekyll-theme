@@ -1,6 +1,6 @@
 
-import { FETCH_POSTS, FETCH_POST } from '../actions/index';
 import jsonQuery from 'json-query';
+import { FETCH_POSTS, FETCH_POST } from '../actions/index';
 
 const INITIAL_STATE = { all: {}, post: null };
 
