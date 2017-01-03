@@ -14,7 +14,7 @@ const muiTheme = getMuiTheme(darkBaseTheme, {
       textColor: grey50
   },
   appBar: {
-    height: 50
+    height: 70
   }
   });
 

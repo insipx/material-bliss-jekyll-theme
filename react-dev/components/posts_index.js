@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import _ from 'lodash';
+
 import { fetchPosts } from '../actions/index';
 
 class PostsIndex extends Component {
@@ -8,18 +10,18 @@ class PostsIndex extends Component {
   }
 
   renderPosts() {
-      if (!this.props.posts.entries) { return; }
-
-      console.log(this.props.posts.entries);
-
-      return this.props.posts.map((post) => {
-        return (
-          <li key={post.entries.title}>
-            <strong>{post.entries.title}</strong>
-          </li>
-        );
-      });
+    if (_.isEmpty(this.props.posts)) {
+      return <li> Loading! </li>;
     }
+    return this.props.posts.entries.map((post) => {
+      return (
+        <li key={post.title}>
+            <strong>{post.title}</strong>
+        </li>
+      );
+    });
+  }
+
   render() {
     return (
       <div>
