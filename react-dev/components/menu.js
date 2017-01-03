@@ -29,8 +29,15 @@ export default class Menu extends Component {
             <CardHeader
               title="Andrew Plaza"
               subtitle="Blogger || Computer Scientist"
-              avatar="static/img/logo.png"
+              avatar="http://api.adorable.io/avatar/aplaza@liquidthink.net"
             />
+            <CardTitle title="About" />
+            <CardText>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
+              Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
+              Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+            </CardText>
           </Card>
         </Drawer>
       </div>
