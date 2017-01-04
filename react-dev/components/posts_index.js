@@ -13,7 +13,7 @@ class PostsIndex extends Component {
     if (_.isEmpty(this.props.posts)) {
       return <li> Loading! </li>;
     }
-    return this.props.posts.entries.map((post) => {
+    return this.props.posts.map((post) => {
       return (
         <li key={post.title}>
             <strong>{post.title}</strong>

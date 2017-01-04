@@ -11,6 +11,7 @@ react:
   name: Andrew Plaza
   menu_right_subtitle: Blogger || Computer Scientist
   avatar: http://api.adorable.io/avatar/aplaza@liquidthink.net
+  logo: static/img/logo.png
   email: aplaza@liquidthink.net
   description: > # this means to ignore newlines until "baseurl:"
     Write an awesome description for your new site here. You can edit this
@@ -27,6 +28,7 @@ react:
 markdown: kramdown
 source: src
 destination: public
+permalink: /posts/:title
 
 assets:
   compress:
