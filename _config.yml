@@ -8,6 +8,9 @@
 # Site settings
 react:
   title: Material Bliss
+  name: Andrew Plaza
+  menu_right_subtitle: Blogger || Computer Scientist
+  avatar: http://api.adorable.io/avatar/aplaza@liquidthink.net
   email: aplaza@liquidthink.net
   description: > # this means to ignore newlines until "baseurl:"
     Write an awesome description for your new site here. You can edit this
@@ -16,7 +19,7 @@ react:
   baseurl: "" # the subpath of your site, e.g. /blog
   url: "http://127.0.0.1:4000" # the base hostname & protocol for your site
   permalink: /posts/:title
-  
+
   twitter_username: liquid_think
   github_username: InsidiousMind
 
@@ -62,4 +65,3 @@ gems:
   - jekyll-assets
   - jekyll_pages_api
   - jekyll_config_to_JSON
-

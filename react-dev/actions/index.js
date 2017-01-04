@@ -6,7 +6,7 @@ export const FETCH_SITE_INFO = 'FETCH_SITE_INFO';
 
 const ROOT_URL = 'http://test_domain.com:4000';
 const POSTS = '/api/v1/pages.json';
-const SITE_INFO = '/api/config/config.json';
+const SITE_INFO = '/api/v1/config.json';
 
 const postsRequest = axios.get(`${ROOT_URL}${POSTS}`);
 const siteInfoRequest = axios.get(`${ROOT_URL}${SITE_INFO}`);
