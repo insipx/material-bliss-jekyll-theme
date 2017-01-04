@@ -2,22 +2,45 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 
+import Paper from 'material-ui/Paper';
+import FontIcon from 'material-ui/FontIcon';
+import RaisedButton from 'material-ui/RaisedButton';
 import { fetchPosts } from '../actions/index';
 
 class PostsIndex extends Component {
+
   componentWillMount() {
     this.props.fetchPosts();
   }
-
+  createMarkup(post) {
+    let body = post.body.split(' ');
+    body = body.slice(1, 50);
+    body = body.join(' ');
+    return `${body}...`;
+  }
   renderPosts() {
     if (_.isEmpty(this.props.posts)) {
       return <li> Loading! </li>;
     }
+
     return this.props.posts.map((post) => {
       return (
-        <li key={post.title}>
-            <strong>{post.title}</strong>
-        </li>
+        <Paper key={post.title} zDepth={3} style={this.style} className="paper-posts-index" >
+          <li key={post.title}>
+              <strong><h2>{post.title}</h2></strong>
+              <p>{this.createMarkup(post)}</p>
+              <div className="div-container">
+                <RaisedButton
+                  target="{post.url}"
+                  label="Read More"
+                  labelPosition="before"
+                  secondary={true}
+                  icon={<FontIcon className="material-icons">&#xE037;</FontIcon>}
+                  className="raised-button-override"
+                />
+            </div>
+          </li>
+        </Paper>
       );
     });
   }
@@ -25,7 +48,6 @@ class PostsIndex extends Component {
   render() {
     return (
       <div>
-        <div> Hey! Posts Heres</div>
         <ul>
           {this.renderPosts()}
         </ul>

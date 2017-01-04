@@ -28,9 +28,6 @@ const muiTheme = getMuiTheme(darkBaseTheme, {
   appBar: {
     height: 100
   },
-  drawer: {
-    width: 350
-  }
   });
 
 export default class App extends Component {
@@ -38,9 +35,11 @@ export default class App extends Component {
     return (
       <div>
         <MuiThemeProvider muiTheme={muiTheme}>
+          <div>
             <Menu />
+            {this.props.children}
+          </div>
         </MuiThemeProvider>
-        {this.props.children}
       </div>
     );
   }

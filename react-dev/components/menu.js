@@ -12,16 +12,31 @@ import Toggle from 'material-ui/Toggle';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import { fetchSiteInfo } from '../actions/index';
+import { updateDimensions } from '../helpers';
 
 class Menu extends Component {
   constructor(props) {
     super(props);
-    this.state = { open: false, config: {} };
+    this.state = { open: false, config: {}, width: 1200, height: null };
   }
 
   componentWillMount() {
     this.props.fetchSiteInfo();
+    this.setState(updateDimensions());
   }
+  componentDidMount() {
+    window.addEventListener('resize', this.setState(updateDimensions()));
+  }
+  componentWillUnmount() {
+    window.addEventListener('resize', this.setState(updateDimensions()));
+  }
+
+  getMenuWidth = () => {
+    if (this.state.width > 1000) return 400;
+    else if (this.state.width <= 800) return 350;
+    else if (this.state.width <= 600) return 256;
+  }
+
   handleToggle = () => this.setState({ open: !this.state.open });
 
   toggleStyles = {
@@ -67,7 +82,7 @@ class Menu extends Component {
             </div>
           }
         />
-        <Drawer open={this.state.open}>
+        <Drawer open={this.state.open} width={this.getMenuWidth()}>
           <AppBar
             title="Menu"
             onLeftIconButtonTouchTap={this.handleToggle}
