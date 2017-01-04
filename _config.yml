@@ -61,3 +61,5 @@ exclude: ['node_modules', 'Gemfile', '.asset-cache', 'build-prod.sh', 'build-dev
 gems:
   - jekyll-assets
   - jekyll_pages_api
+  - jekyll_config_to_JSON
+
