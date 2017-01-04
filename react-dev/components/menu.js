@@ -21,7 +21,7 @@ class Menu extends Component {
     this.props.fetchSiteInfo();
   }
   handleToggle = () => this.setState({ open: !this.state.open });
-
+  //TODO make AppBar and Drawer seperate components
   render() {
     return (
       <div id="wrapper">
