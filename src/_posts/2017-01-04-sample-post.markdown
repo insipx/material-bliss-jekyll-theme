@@ -6,7 +6,7 @@ type: post
 categories: sample new hello
 ---
 
-## I'm a post!!! 
+## I'm a post!!!
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed mauris metus. Donec lobortis nisi et metus aliquam finibus in nec enim. Quisque semper nunc at enim fringilla lacinia. Quisque ac imperdiet tellus, a efficitur magna. Cras lectus quam, sagittis et tortor id, imperdiet sodales velit. Fusce malesuada id dolor et tincidunt. Maecenas rhoncus, felis in iaculis suscipit, velit lorem malesuada eros, vitae aliquam arcu tortor euismod arcu. Integer felis lorem, vehicula eget mauris et, blandit faucibus enim. Fusce faucibus metus vel sagittis sodales. Aliquam quis nunc tempor, varius velit non, placerat ante. Curabitur id nisi quis mauris gravida porta id eget sem. Maecenas ante dui, vulputate id tincidunt ac, iaculis id dolor. Maecenas mattis auctor massa. Nulla mi enim, rutrum nec pharetra non, scelerisque vitae quam. Pellentesque a placerat ligula.
@@ -28,5 +28,3 @@ Aliquam dictum convallis eros id cursus. Nullam porttitor congue urna eget effic
 Nunc pharetra, tellus in luctus sodales, ex elit condimentum libero, sit amet interdum neque risus ac magna. Donec aliquam bibendum eleifend. Nam convallis arcu vestibulum, aliquet magna sit amet, feugiat sapien. Vivamus vitae nisl in nibh tempus euismod vel at sapien. Proin convallis ullamcorper mattis. Nullam dapibus, urna eget efficitur interdum, leo nulla accumsan augue, at porttitor justo odio id eros. Integer non metus ex. Pellentesque quis sapien quis libero fermentum vulputate. Duis maximus tempus orci quis auctor. Aenean eget vehicula risus. Etiam mattis iaculis lorem, eu facilisis mauris tincidunt eget. Proin porttitor nisi eu augue bibendum, sed tincidunt enim iaculis. Vestibulum vitae ullamcorper ex. Quisque dapibus pellentesque magna vitae tristique. Mauris vel ante ultrices nunc congue euismod. Suspendisse ultrices semper ultricies.
 
 Sed vulputate non mauris vel condimentum. Integer facilisis fringilla accumsan. Donec aliquam eget leo maximus cursus. Integer interdum condimentum odio, id ornare nisl sodales ac. Quisque sed interdum diam. Integer semper hendrerit nunc, vel vestibulum est pellentesque congue. Quisque gravida, turpis eget blandit gravida, tellus tellus posuere nisl, vel vulputate lectus lectus sit amet felis.
-
-

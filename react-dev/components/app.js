@@ -7,7 +7,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import Menu from '../components/menu';
+import Header from '../components/header';
 
 //dependency will go away once official React version released
 injectTapEventPlugin();
@@ -36,7 +36,7 @@ export default class App extends Component {
       <div>
         <MuiThemeProvider muiTheme={muiTheme}>
           <div>
-            <Menu />
+            <Header />
             {this.props.children}
           </div>
         </MuiThemeProvider>

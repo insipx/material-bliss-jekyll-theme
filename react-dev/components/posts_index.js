@@ -30,7 +30,7 @@ class PostsIndex extends Component {
 
     return this.props.posts.map((post) => {
       return (
-        <Paper key={post.title} zDepth={3} style={this.style} className="paper-posts-index" >
+        <Paper key={post.title} zDepth={4} style={this.style} className="paper-posts-index" >
           <li key={post.title}>
               <strong><h2>{post.title}</h2></strong>
               <p>{this.createMarkup(post)}</p>
