@@ -30,8 +30,7 @@ class Menu extends Component {
   componentWillUnmount() {
     window.addEventListener('resize', this.setState(updateDimensions()));
   }
-
-  getMenuWidth = () => {
+  getMenuWidth() {
     if (this.state.width > 1000) return 400;
     else if (this.state.width <= 800) return 350;
     else if (this.state.width <= 600) return 256;
