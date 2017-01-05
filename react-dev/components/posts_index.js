@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
+
 import { connect } from 'react-redux';
+
 import _ from 'lodash';
 
 import Paper from 'material-ui/Paper';
 import FontIcon from 'material-ui/FontIcon';
 import RaisedButton from 'material-ui/RaisedButton';
-import { fetchPosts } from '../actions/index';
+
+import { fetchPosts, fetchSiteInfo } from '../actions/index';
 
 class PostsIndex extends Component {
 
   componentWillMount() {
     this.props.fetchPosts();
+    this.props.fetchSiteInfo();
   }
+
   createMarkup(post) {
     let body = post.body.split(' ');
     body = body.slice(1, 50);
@@ -30,14 +35,16 @@ class PostsIndex extends Component {
               <strong><h2>{post.title}</h2></strong>
               <p>{this.createMarkup(post)}</p>
               <div className="div-container">
-                <RaisedButton
-                  target="{post.url}"
-                  label="Read More"
-                  labelPosition="before"
-                  secondary={true}
-                  icon={<FontIcon className="material-icons">&#xE037;</FontIcon>}
-                  className="raised-button-override"
-                />
+                <a href={`${this.props.siteInfo.url}${post.url}`} >
+                  <RaisedButton
+                    target="{post.url}"
+                    label="Read More"
+                    labelPosition="before"
+                    secondary={true}
+                    icon={<FontIcon className="material-icons">&#xE037;</FontIcon>}
+                    className="raised-button-override"
+                  />
+                </a>
             </div>
           </li>
         </Paper>
@@ -57,7 +64,10 @@ class PostsIndex extends Component {
 }
 
 function mapStateToProps(state) {
-  return { posts: state.posts.all };
+  return {
+    posts: state.posts.all,
+    siteInfo: state.siteInfo.all
+  };
 }
 
-export default connect(mapStateToProps, { fetchPosts })(PostsIndex);
+export default connect(mapStateToProps, { fetchPosts, fetchSiteInfo })(PostsIndex);

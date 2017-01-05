@@ -68,7 +68,7 @@ class Menu extends Component {
           iconElementRight={
             <div>
               <Link to="/" >
-                <img role="presentation" src={this.props.config.logo} />
+                <img role="presentation" src={this.props.config.url + '/' + this.props.config.logo} />
               </Link>
               <Toggle
                 label="Toggle Dark Theme"
@@ -87,7 +87,9 @@ class Menu extends Component {
             title="Menu"
             onLeftIconButtonTouchTap={this.handleToggle}
           />
-          <MenuItem>Item!</MenuItem>
+          <a href={this.props.config.url}>
+            <MenuItem>Home</MenuItem>
+          </a>
           <MenuItem>Item!</MenuItem>
           <Card>
             <CardHeader

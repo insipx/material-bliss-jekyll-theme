@@ -18,17 +18,19 @@ react:
     line in _config.yml. It will appear in your document head meta (for
     Google search results) and in your feed.xml site description.
   baseurl: "" # the subpath of your site, e.g. /blog
-  url: "http://127.0.0.1:4000" # the base hostname & protocol for your site
+  url: "http://test_domain.com:4000/" # the base hostname & protocol for your site
   permalink: /posts/:title
 
   twitter_username: liquid_think
   github_username: InsidiousMind
 
+
+permalink: /posts/:title
+url: "http://127.0.0.1:4000/"
 # Build settings
 markdown: kramdown
 source: src
 destination: public
-permalink: /posts/:title
 
 assets:
   compress:
