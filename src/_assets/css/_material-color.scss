@@ -1,57 +1,9 @@
-@charset "utf-8";
-
-
-
-// Our variables
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
-
-$spacing-unit:     30px;
-
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
-
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
-// Width of the content area
-$content-width:    1100px;
-
-$on-palm:          600px;
-$on-laptop:        800px;
-
-$primary1Color: #37474F;
-$primary2Color: #1B5E20;
-$primary3Color: #004D40;
-$accent1Color: #4CAF50;
-$accent2Color: #009688;
-$accent3Color: #00BCD4;
-
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
-}
-
-// MATERIAL UI COLOR PALLETE IN SCSS
 // ==========================================================================
 //
 // Name:        UI Color Palette
 // Description: The color palette of material design.
 // Version:     2.3.1
-// Credit:
+//
 // Author:      Denis Malinochkin
 // Git:         https://github.com/mrmlnc/material-color
 //
@@ -890,10 +842,3 @@ $clr-ui-body-1:    $clr-grey-900;
 $clr-ui-caption:   $clr-grey-600;
 $clr-ui-menu:      $clr-grey-900;
 $clr-ui-button:    $clr-grey-900;
-
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;

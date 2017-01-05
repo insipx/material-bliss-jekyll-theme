@@ -259,7 +259,7 @@ pre {
 .menu-left {
 
   width: 800px;
-  
+
   @include media-query($on-laptop) {
     width: 300px;
   }

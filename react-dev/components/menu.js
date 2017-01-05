@@ -39,26 +39,21 @@ class Menu extends Component {
 
   handleToggle = () => this.setState({ open: !this.state.open });
 
-  toggleStyles = {
-    block: {
-      maxWidth: 250,
-    },
+  styles = {
     toggle: {
-      marginBottom: 16,
-    },
-    labelStyle: {
-      color: 'blue',
+      marginBottom: 10,
     },
     thumbSwitched: {
-      backgroundColor: green900
+      backgroundColor: green900,
     },
     trackSwitched: {
-      backgroundColor: green800
+      backgroundColor: green800,
     },
     trackOff: {
-      backgroundColor: cyan500
+      backgroundColor: cyan500,
     }
-  };
+  }
+
 
   render() {
     return (
@@ -74,10 +69,10 @@ class Menu extends Component {
                 label="Toggle Dark Theme"
                 labelPosition="right"
                 defaultToggled={true}
-                style={this.toggleStyles.toggle}
-                thumbSwitchedStyle={this.toggleStyles.thumbSwitched}
-                trackSwitchedStyle={this.toggleStyles.trackSwitched}
-                trackStyle={this.toggleStyles.trackOff}
+                style={this.styles.toggle}
+                thumbSwitchedStyle={this.styles.thumbSwitched}
+                trackSwitchedStyle={this.styles.trackSwitched}
+                trackStyle={this.styles.trackOff}
               />
             </div>
           }
