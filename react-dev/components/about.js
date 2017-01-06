@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { fetchPost } from '../actions/index';
 
+import { Page } from './page';
 
 class About extends Component {
 
@@ -18,7 +19,7 @@ class About extends Component {
       );
     }
     return (
-      <div> loading </div>
+      <Page title={this.props.pageInfo.title} content={this.props.pageInfo.body} />
     );
   }
 }

@@ -1,12 +1,11 @@
-
+import { resolve, reject } from 'redux-simple-promise';
 import { FETCH_POSTS, FETCH_POST } from '../actions/index';
-import jsonQuery from 'json-query';
 
 const INITIAL_STATE = { all: {}, post: {} };
 
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
-    case FETCH_POSTS: {
+    case resolve(FETCH_POSTS): {
       const data = action.payload.data.entries;
       console.log(data);
       const payload = [];
@@ -19,17 +18,12 @@ export default function (state = INITIAL_STATE, action) {
       });
       return { ...state, all: payload };
     }
-    case FETCH_POST: {
-      console.log(action.title);
-      console.log(action.type);
-      console.log(action.data);
+    
+    case resolve(FETCH_POST): {
       const data = action.payload.data.entries;
-      console.log(data);
       let payload;
-      console.log(action.payload.data);
-
       data.map((el) => {
-        if (el.title === action.title) {
+        if (el.title === action.meta.title) {
           payload = el;
         }
       });

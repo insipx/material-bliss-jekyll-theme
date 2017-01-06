@@ -14,21 +14,27 @@ const siteInfoRequest = axios.get(`${ROOT_URL}${SITE_INFO}`);
 export function fetchPosts() {
   return {
     type: FETCH_POSTS,
-    payload: postsRequest
+    payload: {
+      promise: postsRequest
+    }
   };
 }
 
 export function fetchPost(title) {
   return {
     type: FETCH_POST,
-    payload: postsRequest,
-    title: title
+    payload: {
+      promise: postsRequest,
+      title
+    }
   };
 }
 
 export function fetchSiteInfo() {
   return {
     type: FETCH_SITE_INFO,
-    payload: siteInfoRequest
+    payload: {
+      promise: siteInfoRequest
+    }
   };
 }
