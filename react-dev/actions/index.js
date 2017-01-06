@@ -21,8 +21,8 @@ export function fetchPosts() {
 export function fetchPost(title) {
   return {
     type: FETCH_POST,
-    title,
     payload: postsRequest,
+    title: title
   };
 }
 
