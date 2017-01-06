@@ -43,7 +43,7 @@ class PostsIndex extends Component {
   }
 
   getDate(dateString) {
-    let date = new Date(dateString);
+    const date = new Date(dateString);
     return date.toDateString();
   }
 

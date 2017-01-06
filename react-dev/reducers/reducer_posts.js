@@ -6,19 +6,6 @@ const INITIAL_STATE = { all: {}, post: {} };
 
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
-    case FETCH_POST: {
-      const data = action.payload.data;
-      let payload;
-      console.log(action.payload.data);
-
-      data.map((el) => {
-        if (el.title === action.title) {
-          payload = el;
-        }
-      });
-
-      return { ...state, post: payload };
-    }
     case FETCH_POSTS: {
       const data = action.payload.data.entries;
       console.log(data);
@@ -32,6 +19,23 @@ export default function (state = INITIAL_STATE, action) {
       });
       return { ...state, all: payload };
     }
+    case FETCH_POST: {
+      console.log(action.title);
+      console.log(action.type);
+      console.log(action.data);
+      const data = action.payload.data.entries;
+      console.log(data);
+      let payload;
+      console.log(action.payload.data);
+
+      data.map((el) => {
+        if (el.title === action.title) {
+          payload = el;
+        }
+      });
+      return { ...state, post: payload };
+    }
+
     default:
       return state;
   }

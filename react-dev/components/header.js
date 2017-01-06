@@ -10,6 +10,8 @@ import { fetchSiteInfo } from '../actions/index';
 import Menu from './menu';
 
 class Header extends Component {
+
+
   constructor(props) {
     super(props);
     this.state = { open: false, config: {}, width: 1200, height: null };
@@ -35,7 +37,14 @@ class Header extends Component {
       backgroundColor: cyan500,
     }
   }
-
+  getLogo() {
+    if (!this.props.config.logo) {
+        return;
+    }
+    return (
+      <img role="presentation" src={`${this.props.config.url}/${this.props.config.logo}`} />
+    );
+  }
 
   render() {
     return (
@@ -44,9 +53,7 @@ class Header extends Component {
           onLeftIconButtonTouchTap={this.handleToggle}
           iconElementRight={
             <div>
-              <a href={this.props.config.url}>
-                <img role="presentation" src={this.props.config.url + '/' + this.props.config.logo} />
-              </a>
+              <a href={this.props.config.url}>{this.getLogo()}</a>
               <Toggle
                 label="Toggle Dark Theme"
                 labelPosition="right"

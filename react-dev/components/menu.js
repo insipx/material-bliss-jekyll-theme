@@ -59,7 +59,7 @@ export default class Menu extends Component {
             {this.props.config.description}
           </CardText>
           <CardActions>
-            <Link to="/about">
+            <Link to="about/">
               <RaisedButton label="More About Me" primary={true} />
             </Link>
           </CardActions>
