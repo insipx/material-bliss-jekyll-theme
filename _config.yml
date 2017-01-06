@@ -25,10 +25,32 @@ react:
   github_username: InsidiousMind
 
 
+
+title: Material Bliss
+name: Andrew Plaza
+menu_right_subtitle: Blogger || Computer Scientist
+avatar: http://api.adorable.io/avatar/aplaza@liquidthink.net
+logo: static/img/logo.png
+email: aplaza@liquidthink.net
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://test_domain.com:4000" # the base hostname & protocol for your site
 permalink: /posts/:title
-url: "http://127.0.0.1:4000"
+
+twitter_username: liquid_think
+github_username: InsidiousMind
+ 
+  
 # Build settings
 markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  
 source: src
 destination: public
 

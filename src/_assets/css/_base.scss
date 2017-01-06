@@ -91,15 +91,15 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: $brand-color;
+    color: $clr-cyan-500;
     text-decoration: none;
 
     &:visited {
-        color: darken($brand-color, 15%);
+        color: darken($clr-cyan-500, 10%);
     }
 
     &:hover {
-        color: $text-color;
+        color: $clr-green-500;
         text-decoration: underline;
     }
 }
@@ -130,9 +130,9 @@ blockquote {
 pre,
 code {
     font-size: 15px;
-    border: 1px solid $grey-color-light;
+    border: 1px solid $clr-blue-grey-500;
     border-radius: 3px;
-    background-color: #eef;
+    background-color: #141414;
 }
 
 code {
@@ -149,7 +149,6 @@ pre {
         padding-left: 0;
     }
 }
-
 
 
 /**
@@ -205,8 +204,12 @@ pre {
     }
 }
 
+.post-content {
+  padding-left: 10px;
+}
+
 /** MATERIAL-UI STYLE OVERRIDES **/
-.paper-posts-index {
+.paper-wrapper {
     max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
     max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
     margin-right: auto;
@@ -266,4 +269,12 @@ pre {
   @include media-query($on-palm) {
     width: 250px;
   }
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 5px;
+  text-align: left;
+  margin-bottom: 20px;
 }

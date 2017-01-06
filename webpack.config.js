@@ -36,12 +36,12 @@ module.exports = {
       ],
 
       plugins: [
-        new webpack.DefinePlugin({
+        /*new webpack.DefinePlugin({
           'process.env': {
-            'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-          }
-        })
-//        new StaticSiteGeneratorPlugin('bundle.js', paths)
+              NODE_ENV: JSON.stringify('production')
+            }
+        }), 
+        new webpack.optimize.UglifyJsPlugin()*/
       ]
     },
     resolve: {
@@ -49,7 +49,7 @@ module.exports = {
     },
     devServer: {
       historyApiFallback: true,
-      contentBase:'./react-dev/'
+      contentBase: './react-dev/'
     },
     node: {
       console: true,

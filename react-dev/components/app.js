@@ -7,7 +7,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import Menu from '../components/menu';
+import Header from '../components/header';
 
 //dependency will go away once official React version released
 injectTapEventPlugin();
@@ -20,7 +20,6 @@ const muiTheme = getMuiTheme(darkBaseTheme, {
     accent1Color: green500,
     accent2Color: teal500,
     accent3Color: cyan500,
-    //canvasColor: grey50,
     textColor: grey50,
     alternateTextColor: grey50, //color on header
     //pickerHeaderColor: grey900
@@ -36,7 +35,7 @@ export default class App extends Component {
       <div>
         <MuiThemeProvider muiTheme={muiTheme}>
           <div>
-            <Menu />
+            <Header />
             {this.props.children}
           </div>
         </MuiThemeProvider>

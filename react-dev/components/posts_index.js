@@ -7,6 +7,8 @@ import _ from 'lodash';
 import Paper from 'material-ui/Paper';
 import FontIcon from 'material-ui/FontIcon';
 import RaisedButton from 'material-ui/RaisedButton';
+import Chip from 'material-ui/Chip';
+
 
 import { fetchPosts, fetchSiteInfo } from '../actions/index';
 
@@ -23,21 +25,62 @@ class PostsIndex extends Component {
     body = body.join(' ');
     return `${body}...`;
   }
+
+  styles = {
+    wrapper: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      textAlign: 'left',
+    },
+    chip: {
+      margin: 4,
+    },
+  };
+  getReadTime(post) {
+    const count = post.body.split(' ').length;
+    const readingTime = (count / 233).toFixed(1);
+    return `Reading time ${readingTime} min. Word count: ${count}`;
+  }
+
+  getDate(dateString) {
+    let date = new Date(dateString);
+    return date.toDateString();
+  }
+
+  getCategories(categories) {
+    return categories.map((cat) => { return `${cat} `; })
+  }
+
+  renderChips(data) {
+    return data.map((tag) => {
+      return (<Chip key={tag} style={this.styles.chip}>
+        {tag}
+      </Chip>
+    );
+  });
+  }
   renderPosts() {
     if (_.isEmpty(this.props.posts)) {
       return <li> Loading! </li>;
     }
 
     return this.props.posts.map((post) => {
+      const postLink = `${this.props.siteInfo.url}${post.url}`
       return (
-        <Paper key={post.title} zDepth={3} style={this.style} className="paper-posts-index" >
+        <Paper key={post.title} zDepth={4} className="paper-wrapper" >
           <li key={post.title}>
-              <strong><h2>{post.title}</h2></strong>
+
+              <a href={postLink}><strong><h2>{post.title}</h2></strong></a>
+
+              <div className="post-meta">
+                {this.getDate(post.meta.date)} / {this.getCategories(post.meta.categories)} / {this.getReadTime(post)}
+              </div>
+
               <p>{this.createMarkup(post)}</p>
+
               <div className="div-container">
-                <a href={`${this.props.siteInfo.url}${post.url}`} >
+                <a href={postLink} >
                   <RaisedButton
-                    target="{post.url}"
                     label="Read More"
                     labelPosition="before"
                     secondary={true}
@@ -46,6 +89,11 @@ class PostsIndex extends Component {
                   />
                 </a>
             </div>
+
+            <div style={this.styles.wrapper}>
+              {this.renderChips(post.meta.tags)}
+            </div>
+
           </li>
         </Paper>
       );

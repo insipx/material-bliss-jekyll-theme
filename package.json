@@ -8,7 +8,8 @@
     "dev": "webpack-dev-server --progress --colors",
     "start": "npm run dev",
     "build": "webpack --progress -p --colors",
-    "jekyll": "webpack --progress -p --colors -w"
+    "jekyll": "webpack --progress -p --colors -w",
+    "production": "webpack --progress -p --colors -w"
   },
   "repository": {
     "type": "git",

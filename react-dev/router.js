@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Router, browserHistory } from 'react-router';
-import ReduxPromise from 'redux-promise'
+import ReduxPromise from 'redux-promise';
 
 
 import reducers from './reducers/index';
