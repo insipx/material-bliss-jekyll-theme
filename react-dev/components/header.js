@@ -67,6 +67,7 @@ class Header extends Component {
           }
         />
         <Menu handleToggle={this.handleToggle} open={this.state.open} config={this.props.config} />
+        {this.props.children}
       </div>
     );
   }

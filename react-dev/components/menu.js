@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 
-import { Link } from 'react-router';
+import { Link, IndexLink } from 'react-router';
+
+import _ from 'lodash';
 
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import { Card, CardActions, CardHeader, CardTitle, CardText } from 'material-ui/Card';
-
 import RaisedButton from 'material-ui/RaisedButton';
 
 import { updateDimensions } from '../helpers';
@@ -18,6 +19,8 @@ export default class Menu extends Component {
     this.state = { open: this.props.open };
   }
 
+  //event listeners for dynamic resizing of the menu
+  //couldn't figure out a way to do this purely with CSS
   componentWillMount() {
     this.setState(updateDimensions());
   }
@@ -36,18 +39,41 @@ export default class Menu extends Component {
     else if (this.state.width <= 800) return 256;
   }
 
+  // a function to tell if we need to reload the page (for static content) or
+  //  we are OK just changing the route (for dynamic content). This makes
+  //   navigation to some parts of the website seem almost instant
+  getMenuItem(name, path) {
+    const curr_path = window.location.pathname;
+    if (curr_path.match('(/posts/)+.*') === null) {
+      return (
+        <Link to={path}>
+          <MenuItem>{name}</MenuItem>
+        </Link>
+      );
+    }
+    return (
+      <a href={`${this.props.config.url}${path}`}>
+        <MenuItem>{name}</MenuItem>
+      </a>
+    );
+  }
+    menuItems = { Home: '/', About: 'about/' };
+
+    renderMenuItems() {
+      _.forOwn(this.menuItems, (value, key) => {
+          return this.getMenuItem(key, value);
+      });
+    }
 
   render() {
+    console.log(this.renderMenuItems());
     return (
       <Drawer open={this.props.open} width={this.getMenuWidth()}>
         <AppBar
           title="Menu"
           onLeftIconButtonTouchTap={this.props.handleToggle}
         />
-        <a href={this.props.config.url}>
-          <MenuItem>Home</MenuItem>
-        </a>
-        <MenuItem>Item!</MenuItem>
+        {this.getMenuItem('Home', '/')}
         <Card>
           <CardHeader
             title={this.props.config.name}
@@ -59,9 +85,9 @@ export default class Menu extends Component {
             {this.props.config.description}
           </CardText>
           <CardActions>
-            <Link to="about/">
+            <IndexLink to="about/">
               <RaisedButton label="More About Me" primary={true} />
-            </Link>
+            </IndexLink>
           </CardActions>
         </Card>
       </Drawer>

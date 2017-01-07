@@ -14,8 +14,8 @@ in order to build:
 ./build-prod.sh //for production build
 ```
 
-#### ./react-dev/pages
-These are static Jekyll components being rendered with react-dev
+`./react-dev/pages`
+These are static Jekyll components being rendered with react
 
 
 ### TODO:
