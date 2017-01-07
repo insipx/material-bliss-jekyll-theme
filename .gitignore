@@ -9,3 +9,4 @@ Gemfile.lock
 src/.asset-cache
 webpack/npm-debug.log
 src/_assets/js/bundle.js
+.idea
