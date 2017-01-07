@@ -15,7 +15,7 @@ class About extends Component {
   render() {
     if (!this.props.pageInfo) {
       return (
-        <div> Loading </div>
+        <div> Loading FUCKYE </div>
       );
     }
     return (
