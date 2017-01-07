@@ -57,14 +57,13 @@ export default class Menu extends Component {
       </a>
     );
   }
-    menuItems = { Home: '/', About: 'about/' };
+  menuItems = { Home: '/', About: 'about/' };
 
   renderMenuItems() {
     const result = [];
      _.forEach(this.menuItems, (value, key) => {
         result.push(this.getMenuItem(key, value));
     });
-    console.log(result);
     return result.map((item) => { return item; });
   }
 

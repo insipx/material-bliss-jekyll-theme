@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 
 //MUI React Library
-import { blueGrey800, grey50, teal900, green900, green500, teal500, cyan500 } from 'material-ui/styles/colors';
+import {
+  green900, green500,
+  teal900, teal500,
+  blueGrey800,
+  grey50,
+  cyan500
+} from 'material-ui/styles/colors'; //greens
+
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -29,17 +36,15 @@ const muiTheme = getMuiTheme(darkBaseTheme, {
   },
   });
 
-export default class App extends Component {
-  render() {
-    return (
+export const App = (props) => {
+ return (
+  <div>
+    <MuiThemeProvider muiTheme={muiTheme}>
       <div>
-        <MuiThemeProvider muiTheme={muiTheme}>
-          <div>
-            <Header />
-            {this.props.children}
-          </div>
-        </MuiThemeProvider>
+        <Header />
+        {props.children}
       </div>
-    );
-  }
-}
+    </MuiThemeProvider>
+  </div>
+);
+};

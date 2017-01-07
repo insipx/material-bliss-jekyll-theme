@@ -31,7 +31,8 @@ const getContent = (content) => {
 };
 
 
-export const Page = (props) => (
+export const Page = (props) => {
+ return (
   <Paper className="paper-wrapper">
     <article className="post">
       <header className="post-header">
@@ -41,6 +42,7 @@ export const Page = (props) => (
     </article>
   </Paper>
 );
+};
 
 /*Page.propTypes = {
   content: React.PropTypes.string.isRequired,

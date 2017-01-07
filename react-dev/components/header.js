@@ -21,7 +21,16 @@ class Header extends Component {
     this.props.fetchSiteInfo();
   }
 
-  handleToggle = () => this.setState({ open: !this.state.open });
+  getLogo() {
+    if (!this.props.config.logo) {
+        return;
+    }
+    return (
+      <img role="presentation" src={`${this.props.config.url}/${this.props.config.logo}`} />
+    );
+  }
+
+  handleToggle = () => { return this.setState({ open: !this.state.open }); };
 
   styles = {
     toggle: {
@@ -37,14 +46,6 @@ class Header extends Component {
       backgroundColor: cyan500,
     }
   }
-  getLogo() {
-    if (!this.props.config.logo) {
-        return;
-    }
-    return (
-      <img role="presentation" src={`${this.props.config.url}/${this.props.config.logo}`} />
-    );
-  }
 
   render() {
     return (
@@ -57,7 +58,7 @@ class Header extends Component {
               <Toggle
                 label="Toggle Dark Theme"
                 labelPosition="right"
-                defaultToggled={true}
+                defaultToggled
                 style={this.styles.toggle}
                 thumbSwitchedStyle={this.styles.thumbSwitched}
                 trackSwitchedStyle={this.styles.trackSwitched}
