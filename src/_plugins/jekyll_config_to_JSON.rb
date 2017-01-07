@@ -37,23 +37,3 @@ module Jekyll
 end
 
 
-
-
-
-
-
-=begin  dev on new plugin
-      @site.pages.each do |page|
-        if page.data['render'] && page.data['render'] == 'dynamic'
-          puts page.url
-          page.content = ''
-        end
-      end
-
-    def add_to_pages(name, data)
-      self.site.pages << self.page(name, data)
-    end
-
-
-=end
-
