@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export const FETCH_POST = 'FETCH_POST';
+export const FETCH_PAGE = 'FETCH_PAGE';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const FETCH_SITE_INFO = 'FETCH_SITE_INFO';
 
@@ -28,6 +29,17 @@ export function fetchPost(title) {
       title
     }
   };
+}
+
+
+export function fetchPage(title, url) {
+    const request = axios.get(`${ROOT_URL}${url}${title}.json`);
+    return {
+      type: FETCH_PAGE,
+      payload: {
+        promise: request
+      }
+    };
 }
 
 export function fetchSiteInfo() {

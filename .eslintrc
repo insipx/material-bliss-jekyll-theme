@@ -1,4 +1,5 @@
 {
   "extends": "rallycoding",
-  "allowTemplateLiterals": true
+  "allowTemplateLiterals": true,
+  "arrow-body-style": "never"
 }

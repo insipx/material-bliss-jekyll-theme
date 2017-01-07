@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
+
 import { connect } from 'react-redux';
 
-import { fetchPost } from '../actions/index';
+
+import { fetchPage } from '../actions/index';
 
 import { Page } from './page';
 
 class About extends Component {
 
   componentWillMount() {
-    this.props.fetchPost("About");
-  }
+    this.props.fetchPage('About', '/about/');
+    }
 
   render() {
     if (!this.props.pageInfo) {
       return (
-        <div> Loading FUCKYE </div>
+        <div> Loading </div>
       );
     }
     return (
@@ -25,8 +26,10 @@ class About extends Component {
 }
 
 function mapStateToProps(state) {
-  return { pageInfo: state.posts.post };
+  return {
+    pageInfo: state.posts.page
+  };
 }
 
 
-export default connect(mapStateToProps, { fetchPost })(About);
+export default connect(mapStateToProps, { fetchPage })(About);

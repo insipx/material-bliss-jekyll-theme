@@ -1,13 +1,12 @@
 import { resolve, reject } from 'redux-simple-promise';
-import { FETCH_POSTS, FETCH_POST } from '../actions/index';
+import { FETCH_POSTS, FETCH_POST, FETCH_PAGE } from '../actions/index';
 
-const INITIAL_STATE = { all: {}, post: {} };
+const INITIAL_STATE = { all: {}, post: {}, page: {} };
 
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
     case resolve(FETCH_POSTS): {
       const data = action.payload.data.entries;
-      console.log(data);
       const payload = [];
       //could use jsonQuery but that's overcomplicated...this is clearer
       //still be cool if we did use jsonQuery
@@ -18,7 +17,7 @@ export default function (state = INITIAL_STATE, action) {
       });
       return { ...state, all: payload };
     }
-    
+
     case resolve(FETCH_POST): {
       const data = action.payload.data.entries;
       let payload;
@@ -29,7 +28,10 @@ export default function (state = INITIAL_STATE, action) {
       });
       return { ...state, post: payload };
     }
-
+    case resolve(FETCH_PAGE): {
+      const data = action.payload.data;
+      return { ...state, page: data };
+    }
     default:
       return state;
   }
