@@ -43,37 +43,39 @@ export default class Menu extends Component {
   //  we are OK just changing the route (for dynamic content). This makes
   //   navigation to some parts of the website seem almost instant
   getMenuItem(name, path) {
-    const curr_path = window.location.pathname;
-    if (curr_path.match('(/posts/)+.*') === null) {
+    const currPath = window.location.pathname;
+    if (currPath.match('(/posts/)+.*') === null) {
       return (
-        <Link to={path}>
+        <Link to={path} key={name}>
           <MenuItem>{name}</MenuItem>
         </Link>
       );
     }
     return (
-      <a href={`${this.props.config.url}${path}`}>
+      <a href={`${this.props.config.url}${path}`} key={name}>
         <MenuItem>{name}</MenuItem>
       </a>
     );
   }
     menuItems = { Home: '/', About: 'about/' };
 
-    renderMenuItems() {
-      _.forOwn(this.menuItems, (value, key) => {
-          return this.getMenuItem(key, value);
-      });
-    }
+  renderMenuItems() {
+    const result = [];
+     _.forEach(this.menuItems, (value, key) => {
+        result.push(this.getMenuItem(key, value));
+    });
+    console.log(result);
+    return result.map((item) => { return item; });
+  }
 
   render() {
-    console.log(this.renderMenuItems());
     return (
       <Drawer open={this.props.open} width={this.getMenuWidth()}>
         <AppBar
           title="Menu"
           onLeftIconButtonTouchTap={this.props.handleToggle}
         />
-        {this.getMenuItem('Home', '/')}
+        {this.renderMenuItems()}
         <Card>
           <CardHeader
             title={this.props.config.name}
@@ -86,7 +88,7 @@ export default class Menu extends Component {
           </CardText>
           <CardActions>
             <IndexLink to="about/">
-              <RaisedButton label="More About Me" primary={true} />
+              <RaisedButton label="More About Me" primary />
             </IndexLink>
           </CardActions>
         </Card>
