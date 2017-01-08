@@ -9,6 +9,8 @@ import Toggle from 'material-ui/Toggle';
 import { fetchSiteInfo } from '../actions/index';
 import Menu from './menu';
 
+import { getLink } from '../helpers';
+
 class Header extends Component {
 
 
@@ -30,7 +32,7 @@ class Header extends Component {
     );
   }
 
-  handleToggle = () => { return this.setState({ open: !this.state.open }); };
+  handleToggle = () => this.setState({ open: !this.state.open });
 
   styles = {
     toggle: {
@@ -54,7 +56,7 @@ class Header extends Component {
           onLeftIconButtonTouchTap={this.handleToggle}
           iconElementRight={
             <div>
-              <a href={this.props.config.url}>{this.getLogo()}</a>
+              {getLink(this.getLogo(), '', this.props.config.url, '/')}
               <Toggle
                 label="Toggle Dark Theme"
                 labelPosition="right"

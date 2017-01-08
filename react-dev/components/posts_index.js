@@ -19,23 +19,6 @@ class PostsIndex extends Component {
     this.props.fetchSiteInfo();
   }
 
-  createMarkup(post) {
-    let body = post.body.split(' ');
-    body = body.slice(1, 50);
-    body = body.join(' ');
-    return `${body}...`;
-  }
-
-  styles = {
-    wrapper: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      textAlign: 'left',
-    },
-    chip: {
-      margin: 4,
-    },
-  };
   getReadTime(post) {
     const count = post.body.split(' ').length;
     const readingTime = (count / 233).toFixed(1);
@@ -48,16 +31,32 @@ class PostsIndex extends Component {
   }
 
   getCategories(categories) {
-    return categories.map((cat) => { return `${cat} `; })
+    return categories.map((cat) => `${cat} `);
+  }
+
+  styles = {
+    wrapper: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      textAlign: 'left',
+    },
+    chip: {
+      margin: 4,
+    },
+  };
+
+  createMarkup(post) {
+    let body = post.body.split(' ');
+    body = body.slice(1, 50);
+    body = body.join(' ');
+    return `${body}...`;
   }
 
   renderChips(data) {
-    return data.map((tag) => {
-      return (<Chip key={tag} style={this.styles.chip}>
+    return data.map((tag) => (<Chip key={tag} style={this.styles.chip}>
         {tag}
       </Chip>
-    );
-  });
+    ));
   }
   renderPosts() {
     if (_.isEmpty(this.props.posts)) {
@@ -65,7 +64,7 @@ class PostsIndex extends Component {
     }
 
     return this.props.posts.map((post) => {
-      const postLink = `${this.props.siteInfo.url}${post.url}`
+      const postLink = `${this.props.siteInfo.url}${post.url}`;
       return (
         <Paper key={post.title} zDepth={4} className="paper-wrapper" >
           <li key={post.title}>
@@ -83,7 +82,7 @@ class PostsIndex extends Component {
                   <RaisedButton
                     label="Read More"
                     labelPosition="before"
-                    secondary={true}
+                    secondary
                     icon={<FontIcon className="material-icons">&#xE037;</FontIcon>}
                     className="raised-button-override"
                   />

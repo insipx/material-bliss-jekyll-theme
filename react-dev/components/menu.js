@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 
-import { Link, IndexLink } from 'react-router';
-
 import _ from 'lodash';
-
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import { Card, CardActions, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 
-import { updateDimensions } from '../helpers';
+import { updateDimensions, getLink } from '../helpers';
 
 export default class Menu extends Component {
 
@@ -39,32 +36,29 @@ export default class Menu extends Component {
     else if (this.state.width <= 800) return 256;
   }
 
-  // a function to tell if we need to reload the page (for static content) or
-  //  we are OK just changing the route (for dynamic content). This makes
-  //   navigation to some parts of the website seem almost instant
+  /* a function loaded from 'helpers.js' to tell if we need to reload the page
+   (for static content) or
+    we are OK just changing the route (for dynamic content). This makes
+   navigation to some parts of the website seem almost instant
+   */
+
   getMenuItem(name, path) {
-    const currPath = window.location.pathname;
-    if (currPath.match('(/posts/)+.*') === null) {
-      return (
-        <Link to={path} key={name}>
-          <MenuItem>{name}</MenuItem>
-        </Link>
-      );
-    }
-    return (
-      <a href={`${this.props.config.url}${path}`} key={name}>
-        <MenuItem>{name}</MenuItem>
-      </a>
+    return getLink(
+      <MenuItem>{name}</MenuItem>,
+      name,
+      this.props.config.url,
+      path
     );
   }
-  menuItems = { Home: '/', About: 'about/' };
+  // items for the menu, add or remove depending on your routes
+  menuItems = { Home: '/', About: '/about/' };
 
   renderMenuItems() {
     const result = [];
      _.forEach(this.menuItems, (value, key) => {
         result.push(this.getMenuItem(key, value));
     });
-    return result.map((item) => { return item; });
+    return result.map((item) => item);
   }
 
   render() {
@@ -86,9 +80,12 @@ export default class Menu extends Component {
             {this.props.config.description}
           </CardText>
           <CardActions>
-            <IndexLink to="about/">
-              <RaisedButton label="More About Me" primary />
-            </IndexLink>
+            {getLink(
+              <RaisedButton label="More About Me" primary />,
+              '',
+              this.props.config.url,
+              '/about/'
+            )}
           </CardActions>
         </Card>
       </Drawer>

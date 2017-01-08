@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 //MUI React Library
 import {
@@ -18,6 +18,7 @@ import Header from '../components/header';
 
 //dependency will go away once official React version released
 injectTapEventPlugin();
+
 //style overrides
 const muiTheme = getMuiTheme(darkBaseTheme, {
   palette: {
