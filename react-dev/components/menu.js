@@ -36,6 +36,12 @@ export default class Menu extends Component {
     else if (this.state.width <= 800) return 256;
   }
 
+  getMenuClass = () => {
+    if (this.state.open) {
+      return 'menu-left-ui-open';
+    }
+    return 'menu-left-ui';
+  }
   /* a function loaded from 'helpers.js' to tell if we need to reload the page
    (for static content) or
     we are OK just changing the route (for dynamic content). This makes
@@ -58,37 +64,45 @@ export default class Menu extends Component {
      _.forEach(this.menuItems, (value, key) => {
         result.push(this.getMenuItem(key, value));
     });
-    return result.map((item) => item);
+    return result.map((item) => { return item; });
   }
 
   render() {
     return (
-      <Drawer open={this.props.open} width={this.getMenuWidth()}>
-        <AppBar
-          title="Menu"
-          onLeftIconButtonTouchTap={this.props.handleToggle}
-        />
-        {this.renderMenuItems()}
-        <Card>
-          <CardHeader
-            title={this.props.config.name}
-            subtitle={this.props.config.menu_right_subtitle}
-            avatar={this.props.config.avatar}
+      <div>
+        <Drawer
+          open={this.props.open}
+          docked
+          onRequestChange={(open) => { return this.setState({ open }); }}
+          width={this.getMenuWidth()}
+        >
+          <AppBar
+            title="Menu"
+            onLeftIconButtonTouchTap={this.props.handleToggle}
           />
-          <CardTitle title="About" />
-          <CardText>
-            {this.props.config.description}
-          </CardText>
-          <CardActions>
-            {getLink(
-              <RaisedButton label="More About Me" primary />,
-              '',
-              this.props.config.url,
-              '/about/'
-            )}
-          </CardActions>
-        </Card>
-      </Drawer>
+          {this.renderMenuItems()}
+          <Card>
+            <CardHeader
+              title={this.props.config.name}
+              subtitle={this.props.config.menu_right_subtitle}
+              avatar={this.props.config.avatar}
+            />
+            <CardTitle title="About" />
+            <CardText>
+              {this.props.config.description}
+            </CardText>
+            <CardActions>
+              {getLink(
+                <RaisedButton label="More About Me" primary />,
+                '',
+                this.props.config.url,
+                '/about/'
+              )}
+            </CardActions>
+          </Card>
+        </Drawer>
+        {this.props.isAuthenticated && <div className={classnames('app-content', { expanded: this.state.open })}> {this.props.children } </div>}
+      </div>
     );
     }
 }

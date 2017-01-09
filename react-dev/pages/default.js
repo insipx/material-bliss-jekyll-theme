@@ -4,16 +4,14 @@ export default class Default extends Component {
         render() {
             return (
                 <html>
-                        {`{% include head.html %}`}
+                        {'{% include head.html %}'}
                     <body>
                             <div id="root" />
-                            <div className="wrapper">
-                                    { `{{ content }}`}
-                            </div>
-                            {`{% include footer.html %}`}
+                                    { '{{ content }}'}
+                            {'{% include footer.html %}'}
                     </body>
 
-                    {`{% js bundle %}`}
+                    {'{% js bundle %}'}
                 </html>
             );
         }

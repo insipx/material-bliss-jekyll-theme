@@ -32,7 +32,7 @@ class Header extends Component {
     );
   }
 
-  handleToggle = () => this.setState({ open: !this.state.open });
+  handleToggle = () => { return this.setState({ open: !this.state.open }); };
 
   styles = {
     toggle: {
