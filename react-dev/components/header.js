@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 
 import { connect } from 'react-redux';
 
-import { green800, green900, cyan500 } from 'material-ui/styles/colors';
 import AppBar from 'material-ui/AppBar';
-import Toggle from 'material-ui/Toggle';
-
+import Drawer from 'material-ui/Drawer';
 import { fetchSiteInfo } from '../actions/index';
-import Menu from './menu';
+import { updateDimensions } from '../helpers';
 
-import { getLink } from '../helpers';
+import { RightBar } from './right_menu_bar';
+import { MenuItems } from './menu';
 
 class Header extends Component {
 
@@ -21,56 +21,74 @@ class Header extends Component {
 
   componentWillMount() {
     this.props.fetchSiteInfo();
+    this.setState(updateDimensions());
   }
 
-  getLogo() {
-    if (!this.props.config.logo) {
-        return;
+  componentDidMount() {
+    window.addEventListener('resize', this.setState(updateDimensions()));
+  }
+  componentWillUnmount() {
+    window.addEventListener('resize', this.setState(updateDimensions()));
+  }
+  componentWillReceiveProps(nextProps) {
+  }
+
+  getMenuWidth = () => {
+    //some responsiveness to the menu
+    if (this.state.width > 1600) return 400;
+    else if (this.state.width <= 1600) return 350;
+    else if (this.state.width <= 1400) return 300;
+    else if (this.state.width <= 800) return 256;
+  }
+
+  toggleStaticPostContent = () => {
+    document.getElementById('single-post-content').classList.toggle('expanded');
+  }
+
+  // items for the menu, add or remove depending on your routes
+
+  handleToggle = () => {
+    this.setState({ open: !this.state.open });
+    this.toggleStaticPostContent();
+  };
+  hideMenuButton = () => {
+    if (this.state.open) {
+      return false;
     }
-    return (
-      <img role="presentation" src={`${this.props.config.url}/${this.props.config.logo}`} />
-    );
+    return true;
   }
 
-  handleToggle = () => { return this.setState({ open: !this.state.open }); };
-
-  styles = {
-    toggle: {
-      marginBottom: 10,
-    },
-    thumbSwitched: {
-      backgroundColor: green900,
-    },
-    trackSwitched: {
-      backgroundColor: green800,
-    },
-    trackOff: {
-      backgroundColor: cyan500,
-    }
-  }
 
   render() {
     return (
-      <div id="wrapper">
+      <div>
         <AppBar
+          className={classnames('app-bar', { expanded: this.state.open })}
           onLeftIconButtonTouchTap={this.handleToggle}
+          showMenuIconButton={this.hideMenuButton()}
           iconElementRight={
-            <div>
-              {getLink(this.getLogo(), '', this.props.config.url, '/')}
-              <Toggle
-                label="Toggle Dark Theme"
-                labelPosition="right"
-                defaultToggled
-                style={this.styles.toggle}
-                thumbSwitchedStyle={this.styles.thumbSwitched}
-                trackSwitchedStyle={this.styles.trackSwitched}
-                trackStyle={this.styles.trackOff}
-              />
-            </div>
-          }
+            <RightBar
+              logo={this.props.config.logo}
+              logoURL={`${this.props.config.url}/${this.props.config.logo}`}
+              url={this.props.config.url}
+            />}
         />
-        <Menu handleToggle={this.handleToggle} open={this.state.open} config={this.props.config} />
-        {this.props.children}
+        <Drawer
+          docked
+          width={this.getMenuWidth()}
+          open={this.state.open}
+          onRequestChange={(open) => { return this.setState({ open }); }}
+        >
+          <AppBar title="Menu" onLeftIconButtonTouchTap={this.handleToggle} />
+          <MenuItems
+            name={this.props.config.name}
+            subtitle={this.props.config.menu_right_subtitle}
+            avatar={this.props.config.avatar}
+            description={this.props.config.description}
+            siteURL={this.props.config.url}
+          />
+        </Drawer>
+        {<div className={classnames('app-content', { expanded: this.state.open })}> { this.props.children } </div>}
       </div>
     );
   }

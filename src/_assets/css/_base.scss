@@ -214,7 +214,7 @@ pre {
     max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
     margin-right: auto;
     margin-left: auto;
-    margin-top: 30px;
+    margin-top: 32px;
     margin-bottom: 10px;
     padding-right: $spacing-unit;
     padding-left: $spacing-unit;
@@ -249,6 +249,18 @@ pre {
     }
 }
 
+.single-post-content{
+  -moz-transition: padding-left 218ms cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: padding-left 218ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: padding-left 218ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: padding-left 218ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding-right: 20px !important;
+}
+.single-post-content.expanded{
+  padding-left: 255px;
+}
+
+
 .div-container {
   position: relative;
   padding-top: 36px;
@@ -259,30 +271,6 @@ pre {
   bottom: 5px;
 }
 
-.menu-left-ui {
-
-  width: 400px !important; //no important doesn't override material-ui
-  transform: translate(-400px, 0px) !important;
-
-  @include media-query($on-laptop) {
-    width: 300px !important; //no important doesn't override material-ui
-  }
-  @include media-query($on-palm) {
-    width: 250px !important; //no important doesn't override material-ui
-  }
-}
-.menu-left-ui-open {
-
-  width: 400px !important; //no important doesn't override material-ui
-  transform: translate(0px, 0px) !important;
-
-  @include media-query($on-laptop) {
-    width: 300px !important; //no important doesn't override material-ui
-  }
-  @include media-query($on-palm) {
-    width: 250px !important; //no important doesn't override material-ui
-  }
-}
 
 .post-meta {
   display: flex;
@@ -304,12 +292,15 @@ pre {
   }
 }
 
+/* PUSH LEFT MENU */
+
 .app-bar{
-  -moz-transition: left 218ms cubic-bezier(0.4, 0, 0.2, 1);
-  -o-transition: left 218ms cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: left 218ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  -o-transition: left 218ms cubic-bezier(0.4, 0, 0.2, 1) !important;
   -webkit-transition: left 218ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: left 218ms cubic-bezier(0.4, 0, 0.2, 1);
   left: 0;
+  top: 0;
   width: auto !important;
   right: 0 !important;
   position: fixed !important;
@@ -320,10 +311,10 @@ pre {
   -webkit-transition: padding-left 218ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: padding-left 218ms cubic-bezier(0.4, 0, 0.2, 1);
   padding-right: 20px !important;
-  padding-top: 64px !important;
+  padding-top: 128px !important;
 }
 .app-bar.expanded{
-  left: 255px;
+  left: 400px;
 }
 
 .app-content.expanded{
