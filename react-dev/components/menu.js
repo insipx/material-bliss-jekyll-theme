@@ -4,52 +4,56 @@ import _ from 'lodash';
 import MenuItem from 'material-ui/MenuItem';
 import { Card, CardActions, CardHeader, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
-
+import { SocialMediaList } from './social_media_list';
 
 import { getLink } from '../helpers';
 
 const menuItems = { Home: '/', About: '/about/' };
 
-const getMenuItem = (name, path, url) => {
-  return getLink(
+const styles = {
+  spanSocial: {
+    float: ' left',
+    paddingLeft: '25%',
+    paddingTop: 20,
+  }
+};
+const getMenuItem = (name, path, url) => getLink(
     <MenuItem>{name}</MenuItem>,
     name,
     url, //the site root url
     path
   );
-};
 
 const renderMenuItems = (url) => {
   const result = [];
    _.forEach(menuItems, (value, key) => {
       result.push(getMenuItem(key, value, url));
   });
-  return result.map((item) => { return item; });
+  return result.map((item) => item);
 };
 
-export const MenuItems = props => {
-  return (
+export const MenuItems = props => (
     <div>
-      {renderMenuItems(props.siteURL)}
+      {renderMenuItems(props.config.url)}
       <Card>
         <CardHeader
-          title={props.name}
-          subtitle={props.subtitle}
-          avatar={props.avatar}
+          title={props.config.name}
+          subtitle={props.config.subtitle}
+          avatar={props.config.avatar}
         />
         <CardTitle title="About" />
         <CardText>
-          {props.description}
+          {props.config.description}
         </CardText>
         <CardActions>
           {getLink(
             <RaisedButton label="More About Me" primary />,
             '',
-            props.siteURL,
+            props.config.url,
             '/about/'
           )}
         </CardActions>
       </Card>
+      <SocialMediaList style={styles.spanSocial} config={props.config.social} />
   </div>
   );
-};

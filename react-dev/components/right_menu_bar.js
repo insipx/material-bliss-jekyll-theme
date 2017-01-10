@@ -15,7 +15,7 @@ function getLogo(logo, logoURL) {
 
 const styles = {
     toggle: {
-      marginBottom: 10,
+      marginBottom: 5,
     },
     thumbSwitched: {
       backgroundColor: green900,
@@ -25,30 +25,43 @@ const styles = {
     },
     trackOff: {
       backgroundColor: cyan500,
-    }
+    },
+    input: {
+        width: '43%',
+    },
+    spanToggle: {
+      float: 'left',
+      position: 'relative',
+    },
+    divMargin: {
+      marginRight: -156,
+    },
+    spanSocial: {
+      float: 'left',
+      position: 'relative',
+      right: 180,
+      top: 35,
+  }
   };
 
-export const RightBar = (props) => {
- return (
-   <span>
-     <span>
+export const RightBar = (props) => (
+  <div style={styles.divMargin}>
+     <span style={styles.spanToggle}>
        {getLink(getLogo(props.logo, props.logoURL),
          '',
          props.url,
          '/')}
          <Toggle
-           label="Toggle Dark Theme"
+           label="Toggle Theme"
            labelPosition="right"
            defaultToggled
            style={styles.toggle}
+           inputStyle={styles.input}
            thumbSwitchedStyle={styles.thumbSwitched}
            trackSwitchedStyle={styles.trackSwitched}
            trackStyle={styles.trackOff}
          />
        </span>
-       <span>
-        <SocialMediaList />
-       </span>
-     </span>
+      <SocialMediaList style={styles.spanSocial} />
+     </div>
 );
-};

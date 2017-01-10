@@ -76,22 +76,17 @@ class Header extends Component {
               logo={this.props.config.logo}
               logoURL={`${this.props.config.url}/${this.props.config.logo}`}
               url={this.props.config.url}
+              style={{ marginRight: '-156px', }}
             />}
         />
         <Drawer
           docked
           width={this.getMenuWidth()}
           open={this.state.open}
-          onRequestChange={(open) => { return this.setState({ open }); }}
+          onRequestChange={(open) => this.setState({ open })}
         >
           <AppBar title="Menu" onLeftIconButtonTouchTap={this.handleToggle} />
-          <MenuItems
-            name={this.props.config.name}
-            subtitle={this.props.config.menu_right_subtitle}
-            avatar={this.props.config.avatar}
-            description={this.props.config.description}
-            siteURL={this.props.config.url}
-          />
+          <MenuItems config={this.props.config} />
         </Drawer>
         {<div className={classnames('app-content', { expanded: this.state.open })}> { this.props.children } </div>}
       </div>

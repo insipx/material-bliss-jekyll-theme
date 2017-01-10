@@ -1,12 +1,28 @@
 import React from 'react';
 import FontIcon from 'material-ui/FontIcon';
+import { green900 } from 'material-ui/styles/colors';
 
 const iconStyles = {
-  marginRight: 24,
+  icon: {
+    marginRight: 10,
+  }
 };
 
-export const SocialMediaList = () => {
-  return (
-    <FontIcon className="mdi mdi-github-circle" style={iconStyles} />
+const icons = [
+  ' zmdi-github',
+  'zmdi-facebook',
+  'zmdi-twitter',
+  'zmdi-google-plus',
+  'zmdi-instagram',
+  'zmdi-rss'
+];
+
+const renderIcons = () => icons.map(icon => (
+          <FontIcon className={`zmdi ${icon}`} style={iconStyles.icon} />
+  ));
+
+export const SocialMediaList = (props) => (
+    <span style={props.style}>
+      {renderIcons()}
+    </span>
   );
-};
