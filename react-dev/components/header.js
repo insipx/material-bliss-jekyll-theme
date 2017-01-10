@@ -36,13 +36,16 @@ class Header extends Component {
   getMenuWidth = () => {
     //some responsiveness to the menu
     if (this.state.width > 1600) return 400;
-    else if (this.state.width <= 1600) return 350;
-    else if (this.state.width <= 1400) return 300;
+    else if (this.state.width <= 1600 && this.state.width > 1200) return 350;
+    else if (this.state.width <= 1200 && this.state.width > 800) return 300;
     else if (this.state.width <= 800) return 256;
   }
 
   toggleStaticPostContent = () => {
-    document.getElementById('single-post-content').classList.toggle('expanded');
+    const staticContent = document.getElementById('single-post-content');
+    if (staticContent) {
+      staticContent.classList.toggle('expanded');
+    }
   }
 
   // items for the menu, add or remove depending on your routes
@@ -63,7 +66,7 @@ class Header extends Component {
     return (
       <div>
         <AppBar
-          className={classnames('app-bar', { expanded: this.state.open })}
+          className='app-bar'
           onLeftIconButtonTouchTap={this.handleToggle}
           showMenuIconButton={this.hideMenuButton()}
           iconElementRight={
