@@ -20,9 +20,12 @@ react:
   baseurl: "" # the subpath of your site, e.g. /blog
   url: "http://test_domain.com:4000" # the base hostname & protocol for your site
   permalink: /posts/:title
-
-  twitter_username: liquid_think
-  github_username: InsidiousMind
+  social:
+    twitter: liquid_think
+    github: InsidiousMind
+    facebook: liquidthinknet
+    livecoding: insidious
+    gplus: +LiquidthinkNet #make sure to include the '+'
 
 
 
