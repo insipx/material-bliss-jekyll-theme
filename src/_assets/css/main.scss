@@ -897,5 +897,11 @@ $clr-ui-button:    $clr-grey-900;
 @import
         "base",
         "layout",
-        "syntax-highlighting"
+        "syntax-highlighting", //end of core SASS, next imports are for material icons
+        "variables",
+        "functions",
+        "path",
+        "core",
+        "icons",
+        "extras"
 ;

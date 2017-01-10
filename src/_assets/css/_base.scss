@@ -258,8 +258,11 @@ pre {
 }
 .single-post-content.expanded{
   padding-left: 255px;
+  @include media-query($on-small-laptop) {
+    padding-left: 290px;
+  }
   @include media-query($on-laptop) {
-    padding-left: 350px;
+    padding-left: 240px;
   }
 }
 

@@ -41,6 +41,7 @@ class Header extends Component {
     else if (this.state.width <= 800) return 256;
   }
 
+  //push out menu for static post content
   toggleStaticPostContent = () => {
     const staticContent = document.getElementById('single-post-content');
     if (staticContent) {
@@ -54,13 +55,13 @@ class Header extends Component {
     this.setState({ open: !this.state.open });
     this.toggleStaticPostContent();
   };
+
   hideMenuButton = () => {
     if (this.state.open) {
       return false;
     }
     return true;
   }
-
 
   render() {
     return (

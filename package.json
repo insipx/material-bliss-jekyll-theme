@@ -51,6 +51,7 @@
     "json-query": "^2.2.0",
     "lodash": "^4.17.3",
     "material-ui": "^0.16.6",
+    "mdi": "^1.7.22",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-html-document": "^3.1.0",
