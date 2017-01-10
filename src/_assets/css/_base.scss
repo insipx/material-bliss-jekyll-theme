@@ -319,6 +319,9 @@ pre {
 
 .app-content.expanded{
   padding-left: 255px;
+  @include media-query($on-small-laptop) {
+    padding-left: 290px;
+  }
   @include media-query($on-laptop) {
     padding-left: 280px;
   }
