@@ -10,6 +10,7 @@ import { updateDimensions } from '../helpers';
 
 import { RightBar } from './right_menu_bar';
 import { MenuItems } from './menu';
+import { SocialMediaList } from './social_media_list';
 
 class Header extends Component {
 

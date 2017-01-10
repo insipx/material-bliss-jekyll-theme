@@ -71,6 +71,9 @@ assets:
   assets:
     - "*.png"
     - "bundle.css"
+    - "*.svg"
+    - "*.eof"
+    - "*.ttf"
 
   sources:
     - src/_assets/css

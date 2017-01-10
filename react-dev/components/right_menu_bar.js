@@ -4,7 +4,7 @@ import Toggle from 'material-ui/Toggle';
 import { green800, green900, cyan500 } from 'material-ui/styles/colors';
 
 import { getLink } from '../helpers';
-
+import { SocialMediaList } from './social_media_list';
 
 function getLogo(logo, logoURL) {
     if (!logo) {
@@ -30,20 +30,25 @@ const styles = {
 
 export const RightBar = (props) => {
  return (
-  <div>
-    {getLink(getLogo(props.logo, props.logoURL),
-      '',
-      props.url,
-      '/')}
-    <Toggle
-      label="Toggle Dark Theme"
-      labelPosition="right"
-      defaultToggled
-      style={styles.toggle}
-      thumbSwitchedStyle={styles.thumbSwitched}
-      trackSwitchedStyle={styles.trackSwitched}
-      trackStyle={styles.trackOff}
-    />
-  </div>
+   <span>
+     <span>
+       {getLink(getLogo(props.logo, props.logoURL),
+         '',
+         props.url,
+         '/')}
+         <Toggle
+           label="Toggle Dark Theme"
+           labelPosition="right"
+           defaultToggled
+           style={styles.toggle}
+           thumbSwitchedStyle={styles.thumbSwitched}
+           trackSwitchedStyle={styles.trackSwitched}
+           trackStyle={styles.trackOff}
+         />
+       </span>
+       <span>
+        <SocialMediaList />
+       </span>
+     </span>
 );
 };
