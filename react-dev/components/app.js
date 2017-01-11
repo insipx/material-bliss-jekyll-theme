@@ -15,6 +15,8 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import Header from '../components/header';
+import Footer from '../components/footer';
+
 //dependency will go away once official React version released
 injectTapEventPlugin();
 
@@ -36,16 +38,15 @@ const muiTheme = getMuiTheme(darkBaseTheme, {
   },
   });
 
-export const App = (props) => {
- return (
+export const App = (props) => (
   <div>
     <MuiThemeProvider muiTheme={muiTheme}>
       <div>
         <Header>
           {props.children}
         </Header>
+        <Footer />
       </div>
     </MuiThemeProvider>
   </div>
 );
-};
