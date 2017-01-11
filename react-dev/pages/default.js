@@ -8,6 +8,7 @@ export default class Default extends Component {
           <body>
             <div id="root" />
             { '{{ content }}'}
+          {'{% include footer.html %}'}
           </body>
           {'{% js bundle %}'}
       </html>

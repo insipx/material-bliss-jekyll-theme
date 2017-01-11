@@ -13,7 +13,6 @@ class Footer extends Component {
   }
 
   render() {
-    console.log(this.props.config);
     return (
     <Paper zDepth={3}>
       <footer className="site-footer">

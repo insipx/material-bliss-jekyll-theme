@@ -97,8 +97,12 @@
 /**
  * Site footer
  */
+
+.paper-footer-wrapper {
+  margin-top:180;
+}
 .site-footer {
-    border-top: 1px solid $grey-color-light;
+    border-top: 1px solid $clr-teal-900;
     padding: $spacing-unit 0;
 }
 
@@ -161,7 +165,6 @@
         width:         calc(100% - (#{$spacing-unit} / 2));
     }
 }
-
 
 
 /**

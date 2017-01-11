@@ -1,11 +1,19 @@
 import React from 'react';
-import FontIcon from 'material-ui/FontIcon';
+import IconButton from 'material-ui/IconButton';
 import { green900 } from 'material-ui/styles/colors';
 import _ from 'lodash';
 
 const iconStyles = {
   icon: {
     marginRight: 10,
+    iconHoverColor: green900,
+  },
+  hoveredStyle: {
+    color: green900,
+  },
+  linkStyle: {
+    padding: 0,
+    width: 30,
   }
 };
 
@@ -15,16 +23,18 @@ const renderIcons = (social) => {
     const result = [];
   _.forEach(social, (value, key) => {
     result.push(
-      <a href={value} key={key}>
-        <FontIcon
-          className={`zmdi zmdi-${key}`}
-          style={iconStyles.icon}
-          hoverColor={green900}
-        />
-    </a>
+      <IconButton
+        iconClassName={`zmdi zmdi-${key}`}
+        style={iconStyles.linkStyle}
+        iconStyle={iconStyles.icon}
+        tooltip={key}
+        tooltipPosition="top-right"
+        href={value}
+        key={key}
+      />
     );
 });
-    return result.map(element => element);
+  return result.map(element => { return element; });
 };
 
 

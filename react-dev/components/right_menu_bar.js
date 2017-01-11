@@ -44,7 +44,8 @@ const styles = {
   }
   };
 
-export const RightBar = (props) => (
+export const RightBar = (props) => {
+ return (
   <div style={styles.divMargin}>
      <span style={styles.spanToggle}>
        {getLink(getLogo(props.config.logo, `${props.config.url}/${props.config.logo}`),
@@ -64,4 +65,5 @@ export const RightBar = (props) => (
        </span>
       <SocialMediaList style={styles.spanSocial} social={props.config.social} />
      </div>
-);
+); 
+};
