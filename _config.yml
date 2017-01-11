@@ -21,11 +21,12 @@ react:
   url: "http://test_domain.com:4000" # the base hostname & protocol for your site
   permalink: /posts/:title
   social:
-    twitter: liquid_think
-    github: InsidiousMind
-    facebook: liquidthinknet
-    livecoding: insidious
-    gplus: +LiquidthinkNet #make sure to include the '+'
+    twitter: http://twitter.com/liquid_think
+    github: http://github.com/InsidiousMind
+    facebook: http://facebook.com/liquidthinknet
+    code: http://livecoding.tv/insidious #livecoding.tv handle
+    google-plus: http://plus.google.com/+LiquidthinkNet #make sure to include the '+'
+    rss: feed.xml
 
 
 

@@ -38,7 +38,7 @@ export const MenuItems = props => (
       <Card>
         <CardHeader
           title={props.config.name}
-          subtitle={props.config.subtitle}
+          subtitle={props.config.menu_right_subtitle}
           avatar={props.config.avatar}
         />
         <CardTitle title="About" />
@@ -54,6 +54,6 @@ export const MenuItems = props => (
           )}
         </CardActions>
       </Card>
-      <SocialMediaList style={styles.spanSocial} config={props.config.social} />
+      <SocialMediaList style={styles.spanSocial} social={props.config.social} />
   </div>
   );

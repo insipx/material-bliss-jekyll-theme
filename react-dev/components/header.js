@@ -10,10 +10,8 @@ import { updateDimensions } from '../helpers';
 
 import { RightBar } from './right_menu_bar';
 import { MenuItems } from './menu';
-import { SocialMediaList } from './social_media_list';
 
 class Header extends Component {
-
 
   constructor(props) {
     super(props);
@@ -73,9 +71,7 @@ class Header extends Component {
           showMenuIconButton={this.hideMenuButton()}
           iconElementRight={
             <RightBar
-              logo={this.props.config.logo}
-              logoURL={`${this.props.config.url}/${this.props.config.logo}`}
-              url={this.props.config.url}
+              config={this.props.config}
               style={{ marginRight: '-156px', }}
             />}
         />

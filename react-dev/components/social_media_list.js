@@ -9,54 +9,32 @@ const iconStyles = {
   }
 };
 
-//merge into one object and do it that way
-const icons = {
-  github: 'zmdi-github',
-  facebook: 'zmdi-facebook',
-  twitter: 'zmdi-twitter',
-  gplus: 'zmdi-google-plus',
-  coding: 'zmdi-coding',
-  rss: 'zmdi-rss'
-};
-
-const urls = {
-  github: 'http://www.github.com/',
-  facebook: 'http://www.facebook.com/',
-  twitter: 'http://www.twitter.com/',
-  gplus: 'https://plus.google.com/',
-  coding: 'http://www.livecoding.tv/',
-  rss: 'http://www.test_domain.com:4000/'
-};
-
 //iterate over urls and create the right url based on social media link,
 //then render the FontIcon
-const renderIcons = () => {
+const renderIcons = (social) => {
     const result = [];
-  _.forEach(urls, (value, key) => {
+  _.forEach(social, (value, key) => {
     result.push(
-      <FontIcon
-        className={`zmdi ${icons[`${key}`]}`}
-        style={iconStyles.icon}
-        hoverColor={green900}
-        key={key}
-      />);
+      <a href={value} key={key}>
+        <FontIcon
+          className={`zmdi zmdi-${key}`}
+          style={iconStyles.icon}
+          hoverColor={green900}
+        />
+    </a>
+    );
 });
     return result.map(element => element);
 };
 
-/*
 
-          <a href={`${key}${icons.value}`} key={icons.value} >
-            <FontIcon
-              className={`zmdi ${icons.value}`}
-              style={iconStyles.icon}
-              hoverColor={green900}
-            />
-          </a>
- */
-
-export const SocialMediaList = (props) => (
+export const SocialMediaList = (props) => {
+    if (_.isEmpty(props.social)) {
+       return <span />;
+     }
+     return (
     <span style={props.style}>
-      {renderIcons()}
+      {renderIcons(props.social)}
     </span>
   );
+  };

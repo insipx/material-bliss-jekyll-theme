@@ -47,9 +47,9 @@ const styles = {
 export const RightBar = (props) => (
   <div style={styles.divMargin}>
      <span style={styles.spanToggle}>
-       {getLink(getLogo(props.logo, props.logoURL),
+       {getLink(getLogo(props.config.logo, `${props.config.url}/${props.config.logo}`),
          '',
-         props.url,
+         props.config.url,
          '/')}
          <Toggle
            label="Toggle Theme"
@@ -62,6 +62,6 @@ export const RightBar = (props) => (
            trackStyle={styles.trackOff}
          />
        </span>
-      <SocialMediaList style={styles.spanSocial} />
+      <SocialMediaList style={styles.spanSocial} social={props.config.social} />
      </div>
 );
