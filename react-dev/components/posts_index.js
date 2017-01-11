@@ -31,7 +31,7 @@ class PostsIndex extends Component {
   }
 
   getCategories(categories) {
-    return categories.map((cat) => `${cat} `);
+    return categories.map((cat) => { return `${cat} `; });
   }
 
   styles = {
@@ -42,7 +42,7 @@ class PostsIndex extends Component {
     },
     chip: {
       margin: 4,
-    },
+    }
   };
 
   createMarkup(post) {
@@ -53,10 +53,12 @@ class PostsIndex extends Component {
   }
 
   renderChips(data) {
-    return data.map((tag) => (<Chip key={tag} style={this.styles.chip}>
+    return data.map((tag) => {
+ return (<Chip key={tag} style={this.styles.chip}>
         {tag}
       </Chip>
-    ));
+    );
+});
   }
   renderPosts() {
     if (_.isEmpty(this.props.posts)) {

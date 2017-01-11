@@ -14,3 +14,38 @@ You can find the source code for the Jekyll Material Bliss Theme at:
 You can find the source code for Jekyll at
 {% include icon-github.html username="jekyll" %} /
 [jekyll](https://github.com/jekyll/jekyll)
+
+Here's a demo of syntax highlighting!
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  printf("%s", "Hello World!");
+}
+
+```
+
+```
+#!/usr/bin/python3
+
+def something:
+  print("Hello World!")
+
+something
+```
+
+Even though it's built with React and Jekyll, you can still use liquid tags in you're markdown exactly as you would normally! for example, if you look at the sourcecode for this about page, you will find I use this liquid in this very page
+
+
+The page can render either dynamically or statically. This about page is rendered dynamically, all that's required for a dynamic render is putting
+```
+---
+render: dynamic
+---
+```
+in your front matter. What this does is spit out a corresponding JSON file of your dynamic page at the url. put 'About.json' in the url to see it!
+
+
+If you want a static render, you don't need to include anything for 'render'
