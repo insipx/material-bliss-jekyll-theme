@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -13,9 +13,20 @@ const styles = {
     left: -5000
   }
 };
+
 const action = '//liquidthink.us10.list-manage.com/subscribe/post?u=f1a0e46a4769f1cbba967ae1d&amp;id=517d09234a';
 
-export const SignupForm = () => {
+export default class SignupForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: '' };
+  }
+
+  handleChange = (e) => {
+    this.setState({ value: e.target.value });
+  }
+
+  render() {
   return (
    <div id="mc_embed_signup" style={styles.signup}>
      <form
@@ -23,7 +34,6 @@ export const SignupForm = () => {
        method="post"
        id="mc-embedded-subscribe-form"
        name="mc-embedded-subscribe-form"
-       className="validate"
        target="_blank"
        noValidate
      >
@@ -31,14 +41,20 @@ export const SignupForm = () => {
         <div>
         <label htmlFor="mce-EMAIL">Subscribe!!</label>
         </div>
-        <TextField type="email" value="" name="EMAIL" hintText="Email" />
+        <TextField
+          type="email"
+          value={this.state.value}
+          name="EMAIL"
+          hintText="Email"
+          onChange={this.handleChange}
+        />
           { /* don't touch this part */ }
           <div style={styles.robotDiv} aria-hidden="true">
             <input
               type="text"
               name="b_f1a0e46a4769f1cbba967ae1d_517d09234a"
               tabIndex="-1"
-              value=""
+              value=''
             />
           </div>
           <RaisedButton type="submit" label="Subscribe" name="subscribe" secondary />
@@ -46,4 +62,6 @@ export const SignupForm = () => {
      </form>
    </div>
  );
-};
+ }
+
+}

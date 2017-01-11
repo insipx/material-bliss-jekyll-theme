@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 import { fetchSiteInfo } from '../actions/index';
 import { SocialMediaList } from './social_media_list';
-import { SignupForm } from './signup_form';
+import SignupForm from './signup_form';
 
 class Footer extends Component {
   componentWillMount() {
