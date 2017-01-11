@@ -74,7 +74,15 @@ class PostsIndex extends Component {
               <a href={postLink}><strong><h2>{post.title}</h2></strong></a>
 
               <div className="post-meta">
-                {this.getDate(post.meta.date)} / {this.getCategories(post.meta.categories)} / {this.getReadTime(post)}
+                <ul>
+                  <li>
+                    <time>{this.getDate(post.meta.date)}</time>
+                  </li>
+                  <li className='divider'>/</li>
+                  <li>{this.getCategories(post.meta.categories)}</li>
+                  <li className='divider'>/</li>
+                  <li>{this.getReadTime(post)}</li>
+                </ul>
               </div>
 
               <p>{this.createMarkup(post)}</p>

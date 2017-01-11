@@ -281,11 +281,30 @@ pre {
 
 
 .post-meta {
+  font-size: 14px;
+  color: #828282;
   display: flex;
   flex-wrap: wrap;
   line-height: 5px;
   text-align: left;
   margin-bottom: 20px;
+
+  > time {
+    display: inline-block;
+  }
+
+  > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+  }
+  > ul > li {
+    float: left;
+    margin-right: 4px;
+    padding-bottom: 14px;
+    line-height: 14px;
+  }
 }
 
 
