@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
+import IconButton from 'material-ui/IconButton';
 import { fetchSiteInfo } from '../actions/index';
 import { updateDimensions } from '../helpers';
 
@@ -79,7 +80,7 @@ class Header extends Component {
           docked
           width={this.getMenuWidth()}
           open={this.state.open}
-          onRequestChange={(open) => this.setState({ open })}
+          onRequestChange={(open) => { return this.setState({ open }); }}
         >
           <AppBar title="Menu" onLeftIconButtonTouchTap={this.handleToggle} />
           <MenuItems config={this.props.config} />
