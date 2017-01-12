@@ -32,9 +32,13 @@ module.exports = {
         {
           test: /\.json$/,
           loader: 'json-loader' 
-        }
-      ],
-
+        },
+        {
+          test: /\.css$/,
+          loader: 'style!css?modules',
+          include: /flexboxgrid/,
+        },
+       ],
       plugins: [
         /*      new webpack.DefinePlugin({
           'process.env': {

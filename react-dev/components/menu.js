@@ -8,7 +8,7 @@ import { SocialMediaList } from './social_media_list';
 
 import { getLink } from '../helpers';
 
-const menuItems = { Home: '/', About: '/about/' };
+const menuItems = { Home: '/', About: '/about/', Projects: '/projects/' };
 
 const styles = {
   spanSocial: {
@@ -17,22 +17,25 @@ const styles = {
     paddingTop: 20,
   }
 };
-const getMenuItem = (name, path, url) => getLink(
+const getMenuItem = (name, path, url) => {
+return getLink(
     <MenuItem>{name}</MenuItem>,
     name,
     url, //the site root url
     path
   );
+};
 
 const renderMenuItems = (url) => {
   const result = [];
    _.forEach(menuItems, (value, key) => {
       result.push(getMenuItem(key, value, url));
   });
-  return result.map((item) => item);
+  return result.map((item) => { return item; });
 };
 
-export const MenuItems = props => (
+export const MenuItems = props => {
+return (
     <div>
       {renderMenuItems(props.config.url)}
       <Card>
@@ -57,3 +60,4 @@ export const MenuItems = props => (
       <SocialMediaList style={styles.spanSocial} social={props.config.social} />
   </div>
   );
+};

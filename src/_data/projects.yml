@@ -1,33 +1,42 @@
-- Awesome Project 0:
-  - image: placeholder.jpg
-  - date: Jan 2017
-  - tags:
-    - cool
-    - dope
-    - nice
-    - project
-    - React
-    - Javascript
-    - Ruby
-- Awesome Project 1:
-  - image: placeholder.jpg
-  - date: Jan 2017
-  - tags:
-    - cool
-    - dope
-    - nice
-    - project
-    - React
-    - Javascript
-    - Ruby
-- Awesome Project 2:
-  - image: placeholder.jpg
-  - date: Jan 2017
-  - tags:
-    - cool
-    - dope
-    - nice
-    - project
-    - React
-    - Javascript
-    - Ruby
+- title: Awesome Project 0
+  subtitle: An Awesome Project that Does Something
+  homepage: http://www.github.com/InsidiousMind/
+  image: static/img/placeholder.jpg
+  date: Jan 2017
+  tags:
+  - cool
+  - dope
+  - nice
+  - project
+  - React
+  - Javascript
+  - Ruby
+  description: this is an awesome project that I worked on and something something something just stuff to fill the card
+- title: Awesome Project 1
+  subtitle: Some project that does XX and other XX
+  homepage: http://www.github.com/InsidiousMind
+  image: static/img/placeholder.jpg
+  date: Jan 2017
+  tags:
+  - cool
+  - dope
+  - nice
+  - project
+  - React
+  - Javascript
+  - Ruby
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec ante sit amet ipsum gravida ultrices vitae vehicula enim. Aenean iaculis velit nec ipsum vulputate molestie sit amet et dui. Curabitur libero nibh, rutrum nec lobortis non, blandit eget urna. Curabitur vitae mauris elit. Nulla sed laoreet massa. Integer faucibus nulla et enim convallis
+- title: Awesome Project 2
+  subtitle: WOW! I really have so many awesome projects
+  homepage: http://www.github.com/InsidiousMind
+  image: static/img/placeholder.jpg
+  date: Jan 2017
+  tags:
+  - cool
+  - dope
+  - nice
+  - project
+  - React
+  - Javascript
+  - Ruby
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec ante sit amet ipsum gravida ultrices vitae vehicula enim. Aenean iaculis velit nec ipsum vulputate molestie sit amet et dui. Curabitur libero nibh, rutrum nec lobortis non, blandit eget urna. Curabitur vitae mauris elit. Nulla sed laoreet massa. Integer faucibus nulla et enim convallis,
