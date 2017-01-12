@@ -350,3 +350,22 @@ pre {
     padding-left: 240px;
   }
 }
+
+.right-menu-bar {
+  padding-right: 20px;
+  @include media-query($on-laptop) {
+    padding-right: 0px;
+  }
+  > div {
+    position: relative;
+  }
+}
+
+.social-media-list {
+  position: relative;
+  display: flex;
+  float: right;
+  height: auto;
+  width: auto;
+
+}

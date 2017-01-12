@@ -16,6 +16,9 @@ function getLogo(logo, logoURL) {
 const styles = {
     toggle: {
       marginBottom: 5,
+      width: 'auto',
+      height: 'auto',
+      float: 'left',
     },
     thumbSwitched: {
       backgroundColor: green900,
@@ -29,32 +32,28 @@ const styles = {
     input: {
         width: '43%',
     },
-    spanToggle: {
-      float: 'left',
+    divToggle: {
       position: 'relative',
     },
-    divMargin: {
-      marginRight: -156,
-    },
-    spanSocial: {
-      float: 'left',
-      position: 'relative',
-      right: 180,
-      top: 35,
-  }
+    label: {
+      width: 'calc(100% - 256)',
+    }
   };
 
 export const RightBar = (props) => {
  return (
-  <div style={styles.divMargin}>
-     <span style={styles.spanToggle}>
+  <div className="right-menu-bar" >
+     <div>
        {getLink(getLogo(props.config.logo, `${props.config.url}/${props.config.logo}`),
          '',
          props.config.url,
          '/')}
+       </div>
+      <div>
          <Toggle
            label="Toggle Theme"
            labelPosition="right"
+           labelStyle={styles.label}
            defaultToggled
            style={styles.toggle}
            inputStyle={styles.input}
@@ -62,8 +61,8 @@ export const RightBar = (props) => {
            trackSwitchedStyle={styles.trackSwitched}
            trackStyle={styles.trackOff}
          />
-       </span>
-      <SocialMediaList style={styles.spanSocial} social={props.config.social} />
+         <SocialMediaList social={props.config.social} />
+       </div>
      </div>
-); 
+);
 };

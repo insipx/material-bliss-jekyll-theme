@@ -43,7 +43,7 @@ export const SocialMediaList = (props) => {
        return <span />;
      }
      return (
-    <span style={props.style}>
+    <span style={props.style} className="social-media-list">
       {renderIcons(props.social)}
     </span>
   );
