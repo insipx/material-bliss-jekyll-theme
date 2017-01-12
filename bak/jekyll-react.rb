@@ -1,1 +1,1 @@
-require_relative 'jekyll_react/jekyll-react.rb'
+require 'jekyll_react/json-generator.rb'
