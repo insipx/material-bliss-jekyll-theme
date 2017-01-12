@@ -5,7 +5,6 @@ import fs from 'fs-extra';
 
 import Post from './pages/post';
 import Default from './pages/default';
-import { Footer } from './pages/footer';
 
 function renderStatic(template, file) {
     const html = html_beautify(renderToStaticMarkup(template));
@@ -16,4 +15,3 @@ function renderStatic(template, file) {
 
 renderStatic(<Post />, './src/_layouts/post.html');
 renderStatic(<Default />, './src/_layouts/default.html');
-renderStatic(<Footer />, './src/_includes/footer.html');
