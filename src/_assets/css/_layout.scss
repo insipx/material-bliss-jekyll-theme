@@ -243,8 +243,29 @@
 /* Grid layout */
 
 
+
+.masonry-wrapper {
+  width: 100rem;
+  margin-right: 5%;
+  margin-left: auto;
+  @include media-query($on-standard-laptop){
+    width: 76rem;
+    margin-left: 5%;
+  }
+  @include media-query($on-medium-laptop) {
+    width: 60rem;
+  }
+  @include media-query($on-small-laptop){
+    width: 49rem;
+  }
+  @include media-query($on-laptop){
+    width: auto;
+    overflow-x: hidden;
+  }
+}
+
 .masonry-content {
-  width: 25%;
+  width: 30%;
   margin-top: 10px;
   margin-left: 10px;
   box-sizing: border-box;

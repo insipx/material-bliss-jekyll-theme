@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import Masonry from 'react-masonry-component';
-import { Grid, Row, Col } from 'react-flexbox-grid/lib/index';
+import { Grid } from 'react-flexbox-grid/lib/index';
 
 import { fetchProjects, fetchSiteInfo } from '../actions/index';
 
@@ -37,7 +37,8 @@ class ProjectsIndex extends Component {
   }
 
   renderProjects() {
-    return this.props.projects[1].map((project) => (
+    return this.props.projects[1].map((project) => {
+ return (
         <div className="masonry-content" key={project.title}>
           <Card>
               {this.getAuthorHeader(project)}
@@ -46,7 +47,8 @@ class ProjectsIndex extends Component {
             <CardText> {project.description} </CardText>
           </Card>
         </div>
-      ));
+      );
+});
   }
 
   render() {
@@ -56,11 +58,11 @@ class ProjectsIndex extends Component {
       );
     }
     return (
-      <Grid>
+      <div className="masonry-wrapper">
         <Masonry>
           {this.renderProjects()}
       </Masonry>
-    </Grid>
+    </div>
     );
   }
 }

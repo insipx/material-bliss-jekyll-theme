@@ -1,63 +1,60 @@
-import React from 'react';
-import _ from 'lodash';
+import React, { Component } from 'react';
 
-import MenuItem from 'material-ui/MenuItem';
-import { Card, CardActions, CardHeader, CardTitle, CardText } from 'material-ui/Card';
-import RaisedButton from 'material-ui/RaisedButton';
-import { SocialMediaList } from './social_media_list';
+import AppBar from 'material-ui/AppBar';
+import Drawer from 'material-ui/Drawer';
+import IconButton from 'material-ui/IconButton';
+import { fetchSiteInfo } from '../actions/index';
 
-import { getLink } from '../helpers';
+import { MenuItems } from './menu';
 
-const menuItems = { Home: '/', About: '/about/', Projects: '/projects/' };
 
-const styles = {
-  spanSocial: {
-    float: ' left',
-    paddingLeft: '25%',
-    paddingTop: 20,
+class Menu extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { open: false, config: {}, width: 1200, height: null };
   }
-};
-const getMenuItem = (name, path, url) => {
-return getLink(
-    <MenuItem>{name}</MenuItem>,
-    name,
-    url, //the site root url
-    path
-  );
-};
 
-const renderMenuItems = (url) => {
-  const result = [];
-   _.forEach(menuItems, (value, key) => {
-      result.push(getMenuItem(key, value, url));
-  });
-  return result.map((item) => { return item; });
-};
+  componentWillMount() {
+    this.setState(this.updateDimensions());
+  }
 
-export const MenuItems = props => {
-return (
-    <div>
-      {renderMenuItems(props.config.url)}
-      <Card>
-        <CardHeader
-          title={props.config.name}
-          subtitle={props.config.menu_right_subtitle}
-          avatar={props.config.avatar}
-        />
-        <CardTitle title="About" />
-        <CardText>
-          {props.config.description}
-        </CardText>
-        <CardActions>
-          {getLink(
-            <RaisedButton label="More About Me" primary />,
-            '',
-            props.config.url,
-            '/about/'
-          )}
-        </CardActions>
-      </Card>
-      <SocialMediaList style={styles.spanSocial} social={props.config.social} />
-  </div>
-  );
-};
+  componentDidMount() {
+    window.addEventListener('resize', this.setState(this.updateDimensions()));
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.setState(this.updateDimensions()));
+  }
+
+  getMenuWidth = () => {
+    //some responsiveness to the menu
+    if (this.state.width > 1600) return 400;
+    else if (this.state.width <= 1600 && this.state.width > 1200) return 350;
+    else if (this.state.width <= 1200 && this.state.width > 800) return 300;
+    else if (this.state.width <= 800) return 256;
+  }
+
+  updateDimensions = () => {
+    const w = window;
+    const d = document;
+    const documentElement = d.documentElement;
+    const body = d.getElementsByTagName('body')[0];
+    const width = w.innerWidth || documentElement.clientWidth || body.clientWidth;
+    const height = w.innerHeight || documentElement.clientHeight || body.clientHeight;
+    return ({ width, height });
+  };
+
+  render() {
+    return (
+      <Drawer
+        docked
+        width={this.getMenuWidth()}
+        open={this.state.open}
+        onRequestChange={(open) => { return this.setState({ open }); }}
+      >
+        <AppBar title="Menu" onLeftIconButtonTouchTap={this.handleToggle} />
+        <MenuItems config={this.props.config} />
+      </Drawer>
+    );
+  }
+}

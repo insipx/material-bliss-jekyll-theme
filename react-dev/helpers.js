@@ -1,17 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-export const updateDimensions = () => {
-    const w = window;
-    const d = document;
-    const documentElement = d.documentElement;
-    const body = d.getElementsByTagName('body')[0];
-    const width = w.innerWidth || documentElement.clientWidth || body.clientWidth;
-    const height = w.innerHeight || documentElement.clientHeight || body.clientHeight;
-    return ({ width, height });
-  };
-
-
 /*
 =======================================
  ROUTING
@@ -28,7 +17,7 @@ const staticRoutes = ['/posts/'];
 
 const isRouteDynamic = () => {
     const currPath = window.location.pathname;
-    return staticRoutes.some(route => currPath.match(`(${route})+.*`) === null);
+    return staticRoutes.some(route => { return currPath.match(`(${route})+.*`) === null; });
   };
 
 
