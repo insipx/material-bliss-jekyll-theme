@@ -16,9 +16,8 @@ class ProjectsIndex extends Component {
   }
 
   renderProjects() {
-    return this.props.projects[1].map((project) => {
-      return (
-        <Col xs={3} md={3} key={project.title}>
+    return this.props.projects[1].map((project) => (
+        <Col xs={3} key={project.title}>
           <Card>
             <CardMedia overlay={<CardTitle title="Cool Project" subtitle="yep. that cool." />} >
                <img role="presentation" src={`${this.props.config.url}/${project.image}`} />
@@ -27,8 +26,7 @@ class ProjectsIndex extends Component {
             <CardText> {project.description} </CardText>
           </Card>
         </Col>
-      );
-    });
+      ));
   }
 
   render() {
@@ -39,18 +37,18 @@ class ProjectsIndex extends Component {
     }
     return (
       <Grid>
-        <Row>
-          <Col xs={3} md={3} >
+        <Row start="xs">
+          <Col xs={3} >
             <Card>
               <CardHeader title="Andrew Plaza" subtitle="You can also format it like this!" avatar={this.props.config.avatar} />
               <CardTitle title="Card Title" subtitle="Card subtitle" />
               <CardText>
-                Project Excerpt....Yayy! Something about my project that is really cool!
+                Project Excerpt....Sweet!! Something about my project that is really cool! Like, this project basically bootstraps a rocket ship and flies you to the moon, for free! It's the next great thing, next to...er, oreos. Oreos are pretty great.
               </CardText>
             </Card>
           </Col>
           {this.renderProjects()}
-          <Col xs={3} md={3}>
+          <Col xs={3}>
             <Card>
               <CardHeader
                 title="Linus Torvalds"
@@ -67,7 +65,7 @@ class ProjectsIndex extends Component {
              </CardMedia>
               <CardTitle title="Card Title" subtitle="Card subtitle" />
               <CardText>
-                Project Excerpt....Yayy! Something about my project that is really cool!
+                Hey! YOU. Did you know that this uses a FlexBox Layout? You can arrange these cards anyway you want! Right up to your hearts content.
               </CardText>
             </Card>
           </Col>
