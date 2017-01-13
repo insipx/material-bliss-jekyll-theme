@@ -11,7 +11,8 @@
   - React
   - Javascript
   - Ruby
-  description: this is an awesome project that I worked on and something something something just stuff to fill the card
+  description: this is an awesome project that I worked
+
 - title: Awesome Project 1
   subtitle: Some project that does XX and other XX
   homepage: http://www.github.com/InsidiousMind
@@ -26,6 +27,7 @@
   - Javascript
   - Ruby
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec ante sit amet ipsum gravida ultrices vitae vehicula enim. Aenean iaculis velit nec ipsum vulputate molestie sit amet et dui.
+
 - title: Awesome Project 2
   subtitle: WOW! I really have so many awesome projects
   homepage: http://www.github.com/InsidiousMind
@@ -39,4 +41,31 @@
   - React
   - Javascript
   - Ruby
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec ante sit amet ipsum gravida ultrices vitae vehicula enim. Aenean iaculis velit nec ipsum vulputate molestie sit amet et dui. 
+  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nec ante sit amet ipsum gravida ultrices vitae vehicula enim. Aenean iaculis velit. 
+# An example of an author header without media
+- author: Andrew Plaza
+  author_tag: You can also format it like this!
+  avatar: true
+  homepage: http://www.github.com/InsidiousMind
+  title: An Awesome Project
+  subtitle: some kind of subtitle
+  description: Project Excerpt...Sweet!! Something about my project that is really cool! Like, this project basically bootstraps a rocket ship and flies you to the moon, for free! It's the next great thing, next to...er, oreos. Oreos are pretty great.
+
+- author: Linus Torvalds
+  author_tag: I'm linus, and this is a really cool project
+  avatar: true
+  title: Linux OS
+  homepage: http://www.github.com/InsidiousMind
+  image: static/img/placeholder.jpg
+  date: Jan 2017
+  description:  Project Excerpt....Yayy! Something about my project that is really cool! You know what else are cool?? Oreos. Oreos are love, Oreos are life.
+
+- author: Andrew Tanenbaum
+  author_tag: I'm pretty good at building OS stuff
+  avatar: true
+  title: MINIX
+  subtitle: I'm doing really well with cool projects, aren't I?!
+  homepage: http://www.github.com/InsidiousMind
+  image: static/img/placeholder.jpg
+  date: Jan 2017
+  description: Hey! Did you know this is a masonry layout built with flexbox? You can reorder this section to your hearts content!

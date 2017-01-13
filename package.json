@@ -62,6 +62,7 @@
     "react-dom": "^15.4.1",
     "react-flexbox-grid": "^0.10.2",
     "react-html-document": "^3.1.0",
+    "react-masonry-component": "^5.0.3",
     "react-redux": "^5.0.1",
     "react-router": "^3.0.0",
     "react-spinkit": "^1.1.11",

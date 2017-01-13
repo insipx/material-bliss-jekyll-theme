@@ -239,3 +239,26 @@
         }
     }
 }
+
+/* Grid layout */
+
+
+.masonry-content {
+  width: 25%;
+  margin-top: 10px;
+  margin-left: 10px;
+  box-sizing: border-box;
+  @include media-query($on-standard-laptop){
+    width:30%;
+  }
+  @include media-query($on-small-laptop) {
+    width:40%;
+  }
+  @include media-query($on-laptop) {
+    width: 45%;
+  }
+  @include media-query($on-palm){
+    width: 90%;
+    margin-left: 20px;
+  }
+}
