@@ -260,12 +260,13 @@ pre {
   -o-transition: padding-left 218ms cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-transition: padding-left 218ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: padding-left 218ms cubic-bezier(0.4, 0, 0.2, 1);
-  padding-right: 20px !important;
-  padding-left: 20px !important;
   margin-top: 180px;
 }
 .single-post-content.expanded{
   padding-left: 255px;
+  @include media-query($on-standard-laptop) {
+      padding-left: 280px;
+  }
   @include media-query($on-small-laptop) {
     padding-left: 290px;
   }
@@ -346,17 +347,22 @@ pre {
   -o-transition: padding-left 218ms cubic-bezier(0.4, 0, 0.2, 1);
   -webkit-transition: padding-left 218ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: padding-left 218ms cubic-bezier(0.4, 0, 0.2, 1);
-  padding-right: 20px !important;
   padding-top: 128px !important;
 }
 
 .app-content.expanded{
   padding-left: 255px;
+  @include media-query($on-standard-laptop) {
+      padding-left: 350px;
+  }
   @include media-query($on-small-laptop) {
     padding-left: 290px;
   }
   @include media-query($on-laptop) {
     padding-left: 240px;
+  }
+  @include media-query($on-palm) {
+      padding-left: 250px;
   }
 }
 
