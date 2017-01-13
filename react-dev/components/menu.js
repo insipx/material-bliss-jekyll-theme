@@ -15,6 +15,7 @@ export default class Menu extends Component {
 
   componentWillMount() {
     this.setState(this.updateDimensions());
+    window.addEventListener('resize', this.setState(this.updateDimensions()));
   }
 
   componentDidMount() {

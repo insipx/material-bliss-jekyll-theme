@@ -49,6 +49,7 @@ class Header extends Component {
             <RightBar config={this.props.config} />}
         />
         <Menu open={this.state.open} handleToggle={this.handleToggle} config={this.props.config} />
+
         {<div className={classnames('app-content', { expanded: this.state.open })}> { this.props.children } </div>}
       </div>
     );
