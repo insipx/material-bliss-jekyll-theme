@@ -4,49 +4,17 @@ import classnames from 'classnames';
 import { connect } from 'react-redux';
 
 import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer';
-import IconButton from 'material-ui/IconButton';
 import { fetchSiteInfo } from '../actions/index';
 
+import Menu from './menu';
 import { RightBar } from './right_menu_bar';
-import { MenuItems } from './menu';
 
 class Header extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { open: false, config: {}, width: 1200, height: null };
+    this.state = { open: false, width: 1200, height: null };
   }
-
-  componentWillMount() {
-    this.props.fetchSiteInfo();
-    this.setState(this.updateDimensions());
-  }
-
-  componentDidMount() {
-    window.addEventListener('resize', this.setState(this.updateDimensions()));
-  }
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.setState(this.updateDimensions()));
-  }
-
-  getMenuWidth = () => {
-    //some responsiveness to the menu
-    if (this.state.width > 1600) return 400;
-    else if (this.state.width <= 1600 && this.state.width > 1200) return 350;
-    else if (this.state.width <= 1200 && this.state.width > 800) return 300;
-    else if (this.state.width <= 800) return 256;
-  }
-
-  updateDimensions = () => {
-    const w = window;
-    const d = document;
-    const documentElement = d.documentElement;
-    const body = d.getElementsByTagName('body')[0];
-    const width = w.innerWidth || documentElement.clientWidth || body.clientWidth;
-    const height = w.innerHeight || documentElement.clientHeight || body.clientHeight;
-    return ({ width, height });
-  };
 
   //push out menu for static post content
   toggleStaticPostContent = () => {
@@ -80,15 +48,7 @@ class Header extends Component {
           iconElementRight={
             <RightBar config={this.props.config} />}
         />
-        <Drawer
-          docked
-          width={this.getMenuWidth()}
-          open={this.state.open}
-          onRequestChange={(open) => { return this.setState({ open }); }}
-        >
-          <AppBar title="Menu" onLeftIconButtonTouchTap={this.handleToggle} />
-          <MenuItems config={this.props.config} />
-        </Drawer>
+        <Menu open={this.state.open} handleToggle={this.handleToggle} config={this.props.config} />
         {<div className={classnames('app-content', { expanded: this.state.open })}> { this.props.children } </div>}
       </div>
     );

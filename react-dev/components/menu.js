@@ -2,17 +2,15 @@ import React, { Component } from 'react';
 
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
-import IconButton from 'material-ui/IconButton';
-import { fetchSiteInfo } from '../actions/index';
 
-import { MenuItems } from './menu';
+import { MenuItems } from './menu_items';
 
 
-class Menu extends Component {
+export default class Menu extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { open: false, config: {}, width: 1200, height: null };
+    this.state = { open: this.props.open, width: 1200, height: null };
   }
 
   componentWillMount() {
@@ -49,10 +47,10 @@ class Menu extends Component {
       <Drawer
         docked
         width={this.getMenuWidth()}
-        open={this.state.open}
-        onRequestChange={(open) => { return this.setState({ open }); }}
+        open={this.props.open}
+        onRequestChange={this.props.handleToggle}
       >
-        <AppBar title="Menu" onLeftIconButtonTouchTap={this.handleToggle} />
+        <AppBar title="Menu" onLeftIconButtonTouchTap={this.props.handleToggle} />
         <MenuItems config={this.props.config} />
       </Drawer>
     );
