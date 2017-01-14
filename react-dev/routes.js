@@ -2,10 +2,9 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import { App } from './components/app';
-import PostsIndex from './components/posts_index';
-import About from './components/about';
-import Header from './components/header';
-import ProjectsIndex from './components/projects_index';
+import PostsIndex from './containers/posts_index';
+import About from './containers/about';
+import ProjectsIndex from './containers/projects_index';
 //posts route should match whatever is in the Jekyll config
 
 export default (
