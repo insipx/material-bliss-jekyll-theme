@@ -6,7 +6,7 @@
 
 #### Now Includes Extra Overengineeringness!
 
-Made with React and served statically
+Made with React and served statically and dynamically
 
 ### **in order to build:**
 #### for Production
