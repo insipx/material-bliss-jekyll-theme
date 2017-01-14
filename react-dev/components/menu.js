@@ -29,8 +29,8 @@ export default class Menu extends Component {
     //some responsiveness to the menu
     if (this.state.width > 1600) return 400;
     else if (this.state.width <= 1600 && this.state.width > 1200) return 350;
-    else if (this.state.width <= 1200 && this.state.width > 800) return 300;
-    else if (this.state.width <= 800) return 256;
+    else if (this.state.width <= 1200 && this.state.width > 600) return 300;
+    else if (this.state.width <= 600) return 256;
   }
 
   updateDimensions = () => {
@@ -50,6 +50,7 @@ export default class Menu extends Component {
         width={this.getMenuWidth()}
         open={this.props.open}
         onRequestChange={this.props.handleToggle}
+        swipeAreaWidth={200}
       >
         <AppBar title="Menu" onLeftIconButtonTouchTap={this.props.handleToggle} />
         <MenuItems config={this.props.config} />

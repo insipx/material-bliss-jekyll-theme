@@ -357,13 +357,13 @@ pre {
       padding-left: 350px;
   }
   @include media-query($on-small-laptop) {
-    padding-left: 290px;
+    padding-left: 295px;
   }
   @include media-query($on-laptop) {
-    padding-left: 280px;
+    padding-left: 295px;
   }
   @include media-query($on-palm) {
-      padding-left: 270px;
+      padding-left: 0px;
   }
 }
 
