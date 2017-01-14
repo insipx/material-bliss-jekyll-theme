@@ -354,7 +354,7 @@ pre {
   padding-left: 400px;
   overflow-x: hidden;
   @include media-query($on-standard-laptop) {
-      padding-left: 300px;
+      padding-left: 350px;
   }
   @include media-query($on-small-laptop) {
     padding-left: 290px;

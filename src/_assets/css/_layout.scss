@@ -246,11 +246,10 @@
 
 .masonry-wrapper {
   width: 100rem;
-  margin-right: 5%;
+  margin-right: auto;
   margin-left: auto;
   @include media-query($on-standard-laptop){
     width: 76rem;
-    margin-left: 5%;
   }
   @include media-query($on-medium-laptop) {
     width: 60rem;
@@ -281,5 +280,17 @@
   @include media-query($on-palm){
     width: 90%;
     margin-left: 20px;
+  }
+
+  > a {
+      color: none;
+      text-decoration: none;
+      > div {
+          > div {
+              &:hover {
+              opacity: .5;
+            }
+          }
+      }
   }
 }

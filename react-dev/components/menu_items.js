@@ -17,25 +17,22 @@ const styles = {
     paddingTop: 20,
   }
 };
-const getMenuItem = (name, path, url) => {
-return getLink(
+const getMenuItem = (name, path, url) => getLink(
     <MenuItem>{name}</MenuItem>,
     name,
     url, //the site root url
     path
   );
-};
 
 const renderMenuItems = (url) => {
   const result = [];
    _.forEach(menuItems, (value, key) => {
       result.push(getMenuItem(key, value, url));
   });
-  return result.map((item) => { return item; });
+  return result.map((item) => item);
 };
 
-export const MenuItems = props => {
-return (
+export const MenuItems = props => (
     <div>
       {renderMenuItems(props.config.url)}
       <Card>
@@ -60,4 +57,3 @@ return (
       <SocialMediaList style={styles.spanSocial} social={props.config.social} />
   </div>
   );
-};
