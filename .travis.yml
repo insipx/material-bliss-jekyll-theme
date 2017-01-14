@@ -1,2 +1,2 @@
 language: javascript
-script: build-dev.sh
+script: build-prod.sh
