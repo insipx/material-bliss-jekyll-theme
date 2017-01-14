@@ -4,7 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 
 import { MenuItems } from './menu_items';
-
+import SearchBar from '../containers/search_bar';
 
 export default class Menu extends Component {
 
@@ -52,7 +52,11 @@ export default class Menu extends Component {
         onRequestChange={this.props.handleToggle}
         swipeAreaWidth={200}
       >
-        <AppBar title="Menu" onLeftIconButtonTouchTap={this.props.handleToggle} />
+        <AppBar
+          title="Menu"
+          onLeftIconButtonTouchTap={this.props.handleToggle}
+           iconElementRight={<SearchBar />}
+        />
         <MenuItems config={this.props.config} />
       </Drawer>
     );
