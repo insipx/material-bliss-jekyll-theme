@@ -26,7 +26,7 @@ class PostsIndex extends Component {
   }
 
   getDate(dateString) {
-    const date = new Date(dateString);
+    const date = new Date(dateString.split(' ')[0]);
     return date.toDateString();
   }
 

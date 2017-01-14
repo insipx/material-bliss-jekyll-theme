@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+/* Global Helpers should go here */
+
 /*
 =======================================
  ROUTING
@@ -17,7 +19,7 @@ const staticRoutes = ['/posts/'];
 
 const isRouteDynamic = () => {
     const currPath = window.location.pathname;
-    return staticRoutes.some(route => { return currPath.match(`(${route})+.*`) === null; });
+    return staticRoutes.some(route => currPath.match(`(${route})+.*`) === null);
   };
 
 
