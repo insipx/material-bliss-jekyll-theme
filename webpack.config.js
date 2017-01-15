@@ -2,7 +2,7 @@
 var webpack = require('webpack');
 var fs = require('fs');
 var path = require('path');
-
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 
 module.exports = {
@@ -40,12 +40,14 @@ module.exports = {
         },
        ],
       plugins: [
-        /*      new webpack.DefinePlugin({
-          'process.env': {
-              NODE_ENV: JSON.stringify('production')
-            }
-        }), */
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.DefinePlugin({ 
+          'process.env.NODE_ENV': '"production"'
+        }),
+        new webpack.optimize.UglifyJsPlugin(),
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'server',
+          analyzerPort: 8880
+        })
       ]
     },
     resolve: {

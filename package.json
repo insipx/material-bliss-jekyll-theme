@@ -7,8 +7,8 @@
     "webpack": "webpack --progress --colors",
     "dev": "webpack-dev-server --progress --colors",
     "start": "npm run dev",
-    "build": "webpack --progress -p --colors",
-    "jekyll": "webpack --progress -p --colors -w",
+    "build": "webpack --config webpack.prod.config.js --progress -p --colors",
+    "jekyll": "webpack --config webpack.dev.config.js --progress -p --colors -w",
     "production": "webpack --progress -p --colors -w"
   },
   "repository": {
@@ -37,14 +37,17 @@
     "node-sass": "^4.1.1",
     "npm": "^4.0.5",
     "style-loader": "^0.13.1",
-    "webpack": "^1.14.0"
+    "webpack": "^1.14.0",
+    "webpack-bundle-analyzer": "^2.2.1"
   },
   "dependencies": {
     "axios": "^0.15.3",
     "babel-cli": "^6.18.0",
     "babel-preset-stage-1": "^6.16.0",
     "classnames": "^2.2.5",
+    "compression-webpack-plugin": "^0.3.2",
     "css-loader": "^0.26.1",
+    "dedupe-plugin": "^1.0.0",
     "dompurify": "^0.8.4",
     "ejs": "^2.5.5",
     "eslint-config-rallycoding": "^3.1.0",
