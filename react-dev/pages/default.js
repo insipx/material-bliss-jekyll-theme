@@ -9,7 +9,7 @@ export default class Default extends Component {
             { '{{ content }}'}
             <div id="root" />
           </body>
-          {'{% js bundle %}'}
+          <script src="{{site.url}}/assets/js/bundle.js" type="text/javascript" />
       </html>
     );
   }

@@ -61,7 +61,7 @@ destination: public
 assets:
   compress:
     css: sass
-    js: uglifyjs
+    js: false
 
   autowrite: true
   cache: .asset-cache
@@ -75,6 +75,7 @@ assets:
   assets:
     - "*.png"
     - "bundle.css"
+    - "bundle.js.map"
     - "*.svg"
     - "*.eof"
     - "*.ttf"
@@ -83,7 +84,6 @@ assets:
     - src/_assets/css
     - src/_assets/fonts
     - src/_assets/img
-    - src/_assets/js
     - src/_assets/projects
 
   features:
