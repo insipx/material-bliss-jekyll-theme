@@ -12,7 +12,7 @@ assets:
   skip_baseurl_with_cdn: false
   skip_prefix_with_cdn: false
   prefix: "/assets"
-  digest: true
+  digest: false
 
   assets:
     - "*.png"
@@ -22,7 +22,6 @@ assets:
     - src/_assets/css
     - src/_assets/fonts
     - src/_assets/img
-    - src/_assets/js
     - src/_assets/projects
 
   features:

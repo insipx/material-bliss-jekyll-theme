@@ -55,7 +55,7 @@ export default class Menu extends Component {
         <AppBar
           title="Menu"
           onLeftIconButtonTouchTap={this.props.handleToggle}
-           iconElementRight={<SearchBar />}
+          iconElementRight={<SearchBar />}
         />
         <MenuItems config={this.props.config} />
       </Drawer>

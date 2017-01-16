@@ -10,7 +10,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-        <div> Search! </div>
+      <IconButton iconClassName="zmdi zmdi-search" tooltip="Search" tooltipPosition="top-center" />
     );
   }
 }
