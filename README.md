@@ -56,7 +56,7 @@ any site configuration that you want to let React use, put under 'react' in your
 ### TODO:
  - [x] create a jekyll plugin to output all [YML config] site data into JSON, in such a way which is importable to react and can be used to manage state
  - [x] [possible TODO, maybe redundant. ?] Rendered JS to HTML and outputted into a folder for Jekyll to take it. This allows us to use React components on `_layouts`
- - [ ] create a Dynamic Search Function with Auto Fill
+ - [x] create a Dynamic Search Function with Auto Fill
  - [ ] create category pages
  - [ ] add pagination
  - [ ] make it easier to use with Jekyll
