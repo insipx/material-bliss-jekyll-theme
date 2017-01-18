@@ -46,7 +46,7 @@ class Header extends Component {
           onLeftIconButtonTouchTap={this.handleToggle}
           showMenuIconButton={this.hideMenuButton()}
           iconElementRight={
-            <RightBar config={this.props.config} />}
+            <RightBar config={this.props.config} handleThemeSwitch={this.props.handleThemeSwitch} />}
         />
         <Menu open={this.state.open} handleToggle={this.handleToggle} config={this.props.config} location={this.props.location} />
 

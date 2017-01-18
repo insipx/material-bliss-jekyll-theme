@@ -40,8 +40,7 @@ const styles = {
     }
   };
 
-export const RightBar = (props) => {
- return (
+export const RightBar = (props) => (
   <div className="right-menu-bar" >
      <div>
        {getLink(getLogo(props.config.logo, `${props.config.url}/${props.config.logo}`),
@@ -60,9 +59,9 @@ export const RightBar = (props) => {
            thumbSwitchedStyle={styles.thumbSwitched}
            trackSwitchedStyle={styles.trackSwitched}
            trackStyle={styles.trackOff}
+           onToggle={props.handleThemeSwitch}
          />
          <SocialMediaList social={props.config.social} />
        </div>
      </div>
 );
-};
