@@ -48,7 +48,7 @@ class Header extends Component {
           iconElementRight={
             <RightBar config={this.props.config} />}
         />
-        <Menu open={this.state.open} handleToggle={this.handleToggle} config={this.props.config} />
+        <Menu open={this.state.open} handleToggle={this.handleToggle} config={this.props.config} location={this.props.location} />
 
         {<div className={classnames('app-content', { expanded: this.state.open })}> { this.props.children } </div>}
       </div>

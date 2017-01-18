@@ -41,13 +41,16 @@ class SearchBar extends Component {
     this.props.fetchPosts(term);
   }
 
-  postTitles = () => this.props.posts.map(post => post.title)
+  postTitles = () => {
+    if (_.isEmpty(this.props.posts)) {
+      return [];
+    }
+    return this.props.posts.map(post => post.title);
+  }
 
   render() {
-    if (_.isEmpty(this.props.posts)) {
-      return (
-        <div />
-      );
+    if (this.props.location.pathname !== '/') {
+      return <div />;
     }
     return (
       <div id="container">

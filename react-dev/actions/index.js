@@ -18,7 +18,7 @@ export function fetchPosts(term) {
     type: FETCH_POSTS,
     payload: {
       promise: postsRequest,
-      term
+      term //optional argument
     }
   };
 }

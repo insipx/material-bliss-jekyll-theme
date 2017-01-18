@@ -42,7 +42,7 @@ export const App = (props) => (
   <div>
     <MuiThemeProvider muiTheme={muiTheme}>
       <div>
-        <Header>
+        <Header location={props.location}>
           {props.children}
         <Footer />
       </Header>
