@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Children, cloneElement } from 'react';
 
 //MUI React Library
 import {
@@ -71,6 +71,10 @@ export default class App extends Component {
   handleToggle = () => {
     this.setState({ dark: !this.state.dark });
   }
+  //modify children prop with theme state so that it re-renders on-screen
+  renderChildren = () => Children.map(this.props.children, (child) => cloneElement(child, [{
+        themeState: this.state.dark
+      }]));
 
   render() {
     return (
@@ -78,7 +82,7 @@ export default class App extends Component {
         <MuiThemeProvider muiTheme={this.getTheme()}>
           <div>
             <Header location={this.props.location} handleThemeSwitch={this.handleToggle}>
-              {this.props.children}
+              {this.renderChildren()}
             <Footer />
           </Header>
           </div>

@@ -62,7 +62,6 @@ class PostsIndex extends Component {
     if (_.isEmpty(this.props.posts)) {
       return <li> No Results </li>;
     }
-
     return this.props.posts.map((post) => {
       const postLink = `${this.props.siteInfo.url}${post.url}`;
       return (
