@@ -20,17 +20,8 @@ const styles = {
       height: 'auto',
       float: 'left',
     },
-    thumbSwitched: {
-      backgroundColor: green900,
-    },
-    trackSwitched: {
-      backgroundColor: green800,
-    },
-    trackOff: {
-      backgroundColor: cyan500,
-    },
     input: {
-        width: '43%',
+      width: '43%',
     },
     divToggle: {
       position: 'relative',
@@ -40,7 +31,7 @@ const styles = {
     }
   };
 
-export const RightBar = (props) => (
+ export const RightBar = (props) => (
   <div className="right-menu-bar" >
      <div>
        {getLink(getLogo(props.config.logo, `${props.config.url}/${props.config.logo}`),
@@ -56,9 +47,6 @@ export const RightBar = (props) => (
            defaultToggled
            style={styles.toggle}
            inputStyle={styles.input}
-           thumbSwitchedStyle={styles.thumbSwitched}
-           trackSwitchedStyle={styles.trackSwitched}
-           trackStyle={styles.trackOff}
            onToggle={props.handleThemeSwitch}
          />
          <SocialMediaList social={props.config.social} />
