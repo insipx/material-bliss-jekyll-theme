@@ -60,7 +60,7 @@ class PostsIndex extends Component {
   }
   renderPosts() {
     if (_.isEmpty(this.props.posts)) {
-      return <li> Loading! </li>;
+      return <li> No Results </li>;
     }
 
     return this.props.posts.map((post) => {
