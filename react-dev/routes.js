@@ -5,6 +5,7 @@ import { App } from './components/app';
 import PostsIndex from './containers/posts_index';
 import About from './containers/about';
 import ProjectsIndex from './containers/projects_index';
+import Layout from './containers/layout';
 //posts route should match whatever is in the Jekyll config
 
 export default (

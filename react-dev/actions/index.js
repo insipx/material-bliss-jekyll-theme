@@ -13,11 +13,12 @@ const postsRequest = axios.get(`${ROOT_URL}${API_URL}pages.json`);
 const siteInfoRequest = axios.get(`${ROOT_URL}${API_URL}config.json`);
 const projectsRequest = axios.get(`${ROOT_URL}${API_URL}projects.json`);
 
-export function fetchPosts() {
+export function fetchPosts(term) {
   return {
     type: FETCH_POSTS,
     payload: {
-      promise: postsRequest
+      promise: postsRequest,
+      term
     }
   };
 }

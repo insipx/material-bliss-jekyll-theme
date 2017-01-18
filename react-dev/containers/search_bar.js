@@ -27,19 +27,23 @@ class SearchBar extends Component {
   }
 
   handleClick() {
-    console.log('click');
     const toggleBox = document.getElementById('search-form-auto');
     if (!toggleBox) {
       return;
     }
-    console.log('its not null!');
     toggleBox.classList.toggle('search-hidden');
+  }
+
+  handleNewRequest = (term, index) => {
+    this.props.fetchPosts(term);
+  }
+  handleUpdateInput = (term, data, params) => {
+    this.props.fetchPosts(term);
   }
 
   postTitles = () => this.props.posts.map(post => post.title)
 
   render() {
-    console.log(this.props.posts);
     if (_.isEmpty(this.props.posts)) {
       return (
         <div />
@@ -55,6 +59,7 @@ class SearchBar extends Component {
               maxSearchResults={5}
               style={this.styles.root}
               textFieldStyle={this.styles.textField}
+              onNewRequest={this.handleNewRequest}
             />
           </div>
           <IconButton

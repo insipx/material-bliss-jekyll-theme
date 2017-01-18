@@ -44,7 +44,7 @@ export const App = (props) => (
       <div>
         <Header>
           {props.children}
-          <Footer />
+        <Footer />
       </Header>
       </div>
     </MuiThemeProvider>

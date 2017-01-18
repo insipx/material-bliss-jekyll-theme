@@ -1,3 +1,4 @@
+import fuzzy from 'fuzzy';
 import { resolve, reject } from 'redux-simple-promise';
 import { FETCH_POSTS, FETCH_POST, FETCH_PAGE } from '../actions/index';
 
@@ -10,6 +11,24 @@ export default function (state = INITIAL_STATE, action) {
       const payload = [];
       //could use jsonQuery but that's overcomplicated...this is clearer
       //still be cool if we did use jsonQuery
+      if (typeof action.meta.term !== 'undefined') {
+        const options = {
+          pre: '',
+          post: '',
+          extract(el) {
+            return `${el.title} ${el.tags.map((tag) => `${tag} `)} `;
+          }
+        };
+        const results = fuzzy.filter(action.meta.term, data, options);
+        results.map((el) => {
+          if (el.score > 6) {
+            payload.push(el.original);
+          }
+        });
+
+        return { ...state, all: payload };
+      }
+
       data.map((el) => {
         if (el.meta.type === 'post') {
           payload.push(el);
