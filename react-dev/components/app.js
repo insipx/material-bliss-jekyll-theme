@@ -93,6 +93,7 @@ export default class App extends Component {
       return true;
     }
   }
+  
   //push out menu for static post content
   getTheme = () => {
     if (this.state.dark) {
