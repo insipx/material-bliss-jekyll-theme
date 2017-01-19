@@ -2,7 +2,7 @@
 ## DEMO: [code.liquidthink.net](http://www.code.liquidthink.net)
 #### created with React, Redux, React-Router and transpiled with Webpack.
 
-##### All the awesomeness of Material UI without the hassle of JQuery and servers, built with the latest web technologies!
+##### All the awesomeness of Material UI without the hassle of JQuery and servers, built with the latest web technologies
 
 #### Now Includes Extra Overengineeringness!
 
@@ -22,6 +22,7 @@ Made with React and served statically and dynamically
 - Two Themes: Light and Dark
 - Fully Responsive for most devices
 - Dynamic Fuzzy Search
+- Push-out Menu to save space and create focus for users
 - Dynamic Project Page in a masonry layout built
 - The pros of dynamic webpages matched with the awesomeness of static Jekyll
 - Optimized (99/100 on testmysite by google) with Jekyll Assets and Webpack
