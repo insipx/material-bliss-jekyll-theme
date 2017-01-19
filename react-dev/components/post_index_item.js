@@ -40,49 +40,54 @@ const getReadTime = (post) => {
   return `Reading time ${readingTime} min. Word count: ${count}`;
 };
 
+const renderPosts = (props) => _.reverse(props.posts.map((post) => {
+  const postLink = `${props.siteInfo.url}${post.url}`;
+
+  return (
+    <Paper key={post.title} zDepth={4} className="paper-wrapper" >
+      <li key={post.title}>
+        <a href={postLink}><strong><h2>{post.title}</h2></strong></a>
+        <div className="post-meta">
+          <ul>
+            <li>
+              <time>{getDate(post.meta.date)}</time>
+            </li>
+            <li className='divider'>/</li>
+            <li>{getCategories(post.meta.categories)}</li>
+            <li className='divider'>/</li>
+            <li>{getReadTime(post)}</li>
+          </ul>
+        </div>
+
+        <p>{createMarkup(post)}</p>
+
+        <div className="div-container">
+          <a href={postLink} >
+            <RaisedButton
+              label="Read More"
+              labelPosition="before"
+              secondary
+              icon={<FontIcon className="material-icons">&#xE037;</FontIcon>}
+              className="raised-button-override"
+            />
+          </a>
+      </div>
+
+      <div style={styles.wrapper}>
+        {renderChips(post.meta.tags)}
+      </div>
+    </li>
+  </Paper>
+);
+}));
+
 export const PostIndexItem = (props) => {
-    if (_.isEmpty(props.posts)) {
-      return <li> No Results </li>;
-    }
-
-    return _.reverse(props.posts.map((post) => {
-      const postLink = `${props.siteInfo.url}${post.url}`;
-
-      return (
-        <Paper key={post.title} zDepth={4} className="paper-wrapper" >
-          <li key={post.title}>
-            <a href={postLink}><strong><h2>{post.title}</h2></strong></a>
-            <div className="post-meta">
-              <ul>
-                <li>
-                  <time>{getDate(post.meta.date)}</time>
-                </li>
-                <li className='divider'>/</li>
-                <li>{getCategories(post.meta.categories)}</li>
-                <li className='divider'>/</li>
-                <li>{getReadTime(post)}</li>
-              </ul>
-            </div>
-
-            <p>{createMarkup(post)}</p>
-
-            <div className="div-container">
-              <a href={postLink} >
-                <RaisedButton
-                  label="Read More"
-                  labelPosition="before"
-                  secondary
-                  icon={<FontIcon className="material-icons">&#xE037;</FontIcon>}
-                  className="raised-button-override"
-                />
-              </a>
-          </div>
-
-          <div style={styles.wrapper}>
-            {renderChips(post.meta.tags)}
-          </div>
-        </li>
-      </Paper>
-    );
-  }));
+  if (_.isEmpty(props.posts)) {
+    return <li> No Results </li>;
+  }
+  return (
+    <ul>
+      {renderPosts(props)}
+    </ul>
+  );
 };

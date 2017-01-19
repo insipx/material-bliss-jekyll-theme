@@ -15,9 +15,7 @@ class PostsIndex extends Component {
   render() {
     return (
       <div>
-        <ul>
           <PostIndexItem posts={this.props.posts} siteInfo={this.props.siteInfo} />
-        </ul>
       </div>
     );
   }
