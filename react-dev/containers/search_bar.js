@@ -37,8 +37,10 @@ class SearchBar extends Component {
   handleNewRequest = (term, index) => {
     this.props.fetchPosts(term);
   }
+
   handleUpdateInput = (term, data, params) => {
-    this.props.fetchPosts(term);
+    const debFetch = _.debounce(this.props.fetchPosts, 400);
+    debFetch(term);
   }
 
   postTitles = () => {
@@ -63,6 +65,7 @@ class SearchBar extends Component {
               style={this.styles.root}
               textFieldStyle={this.styles.textField}
               onNewRequest={this.handleNewRequest}
+              onUpdateInput={this.handleUpdateInput}
             />
           </div>
           <IconButton

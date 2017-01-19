@@ -1,6 +1,7 @@
 #!/bin/bash
-bundle install &&
 npm install &&
+bundle install &&
+bundle update &&
 npm run build &&
-sh ./generate-static.sh &&
-bundle exec jekyll serve
+./generate-static.sh &&
+bundle exec jekyll build

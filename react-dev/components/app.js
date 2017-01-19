@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { Component, Children, cloneElement } from 'react';
 
 //MUI React Library
-import {
-  green900, green500,
+import { //dark theme
+  green900, green500, green800,
   teal900, teal500,
   blueGrey800,
   grey50,
-  cyan500
-} from 'material-ui/styles/colors'; //greens
+  cyan500,
+  //light theme
+  grey300, grey400
+} from 'material-ui/styles/colors'; //dark theme
 
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -36,22 +37,98 @@ const darkMuiTheme = getMuiTheme(darkBaseTheme, {
   },
   appBar: {
     height: 100
+  },
+  toggle: {
+    thumbDisabledColor: green900,
+    trackOffColor: blueGrey800,
+    trackOnColor: green900,
+    trackDisabledColor: green800,
+    thumbOnColor: green900
   }
 });
 
-const lightMuiTheme = getMuiTheme(lightBaseTheme);
+const lightMuiTheme = getMuiTheme(null, {
+  pallete: {
+    primary1Color: teal500,
+    primary2Color: grey300,
+    primary3Color: cyan500,
+    accent1Color: blueGrey800,
+    accent2Color: green900,
+    accent3Color: teal900
+  },
+  appBar: {
+    height: 100,
+    color: teal500
+  },
+  toggle: {
+    thumbDisabledColor: green900,
+    trackOffColor: blueGrey800,
+    trackOnColor: green900,
+    trackDisabledColor: green800,
+    thumbOnColor: green900
+  },
+  paper: {
+    backgroundColor: grey300
+  },
+  drawer: {
+    color: grey300
+  },
+  chip: {
+    backgroundColor: grey400
+  },
+  raisedButton: {
+    secondaryColor: cyan500
+  }
+});
 
-export default class App {
 
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { dark: true };
+  }
+
+  shouldComponentUpdate(nextState) {
+    if (this.state.dark !== nextState.dark) {
+      return true;
+    }
+  }
+
+  //push out menu for static post content
+  getTheme = () => {
+    if (this.state.dark) {
+      this.toggleStaticPostContent();
+      return darkMuiTheme;
+    }
+    this.toggleStaticPostContent();
+    return lightMuiTheme;
+  }
+
+  toggleStaticPostContent = () => {
+    const staticContent = document.getElementById('post-static-content');
+    if (staticContent && this.state.dark) {
+      staticContent.classList.remove('static-paper-light');
+    } else if (staticContent && !this.state.dark) {
+      staticContent.classList.add('static-paper-light');
+    }
+  }
+
+  handleToggle = () => {
+    this.setState({ dark: !this.state.dark });
+  }
+  //modify children prop with theme state so that it re-renders on-screen
+  renderChildren = () => Children.map(this.props.children, (child) => cloneElement(child, [{
+        themeState: this.state.dark
+      }]));
 
   render() {
     return (
       <div>
-        <MuiThemeProvider muiTheme={darkMuiTheme}>
+        <MuiThemeProvider muiTheme={this.getTheme()}>
           <div>
-            <Header location={this.props.location}>
-              {this.props.children}
-            <Footer />
+            <Header location={this.props.location} handleThemeSwitch={this.handleToggle}>
+              {this.renderChildren()}
+            <Footer themeState={this.state.dark} />
           </Header>
           </div>
         </MuiThemeProvider>
