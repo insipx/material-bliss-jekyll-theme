@@ -15,8 +15,10 @@ Made with React and served statically and dynamically
 ```
 
 #### for Development:
+run both build-dev and npm run jekyll in different terminals
 ```
-./build-dev.sh
+npm run jekyll // in one terminal
+./build-dev.sh //in another
 ```
 ### Features:
 - Two Themes: Light and Dark
