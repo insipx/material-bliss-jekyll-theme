@@ -1,12 +1,8 @@
+v1.x branch. Release and bugfixes for this branch go here
+
 # Material Theme for Jekyll!
 ## DEMO: [code.liquidthink.net](http://www.code.liquidthink.net)
-#### created with React, Redux, React-Router and transpiled with Webpack.
 
-##### All the awesomeness of Material UI without the hassle of JQuery and servers, built with the latest web technologies
-
-#### Now Includes Extra Overengineeringness!
-
-Made with React and served statically and dynamically
 
 ### **in order to build:**
 #### for Production
