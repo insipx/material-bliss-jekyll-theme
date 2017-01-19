@@ -62,7 +62,7 @@ class PostsIndex extends Component {
     if (_.isEmpty(this.props.posts)) {
       return <li> No Results </li>;
     }
-    return this.props.posts.map((post) => {
+    return _.reverse(this.props.posts.map((post) => {
       const postLink = `${this.props.siteInfo.url}${post.url}`;
       return (
         <Paper key={post.title} zDepth={4} className="paper-wrapper" >
@@ -103,7 +103,7 @@ class PostsIndex extends Component {
           </li>
         </Paper>
       );
-    });
+    }));
   }
 
   render() {
