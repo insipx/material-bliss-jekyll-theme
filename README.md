@@ -1,10 +1,8 @@
 # Material Theme for Jekyll!
 ## DEMO: [code.liquidthink.net](http://www.code.liquidthink.net)
 #### created with React, Redux, React-Router and transpiled with Webpack.
+#### [Material-UI](https://github.com/callemall/material-ui)
 
-##### All the awesomeness of Material UI without the hassle of JQuery and servers, built with the latest web technologies
-
-#### Now Includes Extra Overengineeringness!
 
 Made with React and served statically and dynamically
 
