@@ -45,6 +45,7 @@
     "axios": "^0.15.3",
     "babel-cli": "^6.18.0",
     "babel-plugin-closure-elimination": "^1.1.14",
+    "babel-plugin-constant-folding": "^1.0.1",
     "babel-plugin-material-ui": "^0.3.0",
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-1": "^6.16.0",
