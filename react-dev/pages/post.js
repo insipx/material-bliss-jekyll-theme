@@ -36,7 +36,7 @@ class Post extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className="single-post-content" id="single-post-content">
-          <Paper zDepth={4} className="paper-wrapper">
+          <Paper zDepth={4} className="paper-wrapper" id="post-static-content">
           <article className="post" itemScope itemType="http://schema.org/BlogPosting">
 
             <header className="post-header">

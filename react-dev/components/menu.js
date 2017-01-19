@@ -51,6 +51,8 @@ export default class Menu extends Component {
         open={this.props.open}
         onRequestChange={this.props.handleToggle}
         swipeAreaWidth={200}
+        className="menu-overflow"
+        containerClassName="menu-overflow"
       >
         <AppBar
           title="Menu"

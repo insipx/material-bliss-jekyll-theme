@@ -49,6 +49,14 @@ const darkMuiTheme = getMuiTheme(darkBaseTheme, {
 });
 
 const lightMuiTheme = getMuiTheme(null, {
+  pallete: {
+    primary1Color: teal500,
+    primary2Color: grey300,
+    primary3Color: cyan500,
+    accent1Color: blueGrey800,
+    accent2Color: green900,
+    accent3Color: teal900
+  },
   appBar: {
     height: 100,
     color: teal500
@@ -63,8 +71,14 @@ const lightMuiTheme = getMuiTheme(null, {
   paper: {
     backgroundColor: grey300
   },
+  drawer: {
+    color: grey300
+  },
   chip: {
     backgroundColor: grey400
+  },
+  raisedButton: {
+    secondaryColor: cyan500
   }
 });
 
@@ -79,13 +93,23 @@ export default class App extends Component {
       return true;
     }
   }
-
+  //push out menu for static post content
   getTheme = () => {
     if (this.state.dark) {
+      this.toggleStaticPostContent();
       return darkMuiTheme;
     }
-    console.log(lightMuiTheme);
+    this.toggleStaticPostContent();
     return lightMuiTheme;
+  }
+
+  toggleStaticPostContent = () => {
+    const staticContent = document.getElementById('post-static-content');
+    if (staticContent && this.state.dark) {
+      staticContent.classList.remove('static-paper-light');
+    } else if (staticContent && !this.state.dark) {
+      staticContent.classList.add('static-paper-light');
+    }
   }
 
   handleToggle = () => {

@@ -133,6 +133,7 @@ code {
     border: 1px solid $clr-blue-grey-500;
     border-radius: 3px;
     background-color: #141414;
+    color: #eee;
 }
 
 code {
@@ -253,6 +254,11 @@ pre {
     > li {
       list-style-type: none;
     }
+}
+
+.static-paper-light {
+  color: #000000 !important;
+  background-color: #eee !important;
 }
 
 .single-post-content{
