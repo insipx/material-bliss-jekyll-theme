@@ -59,6 +59,7 @@ any site configuration that you want to let React use, put under 'react' in your
  - [x] create a Dynamic Search Function with Auto Fill
  - [ ] create category pages
  - [ ] add pagination
+ - [ ] Make different post 'types' (IE Fullsize page)
  - [ ] make it easier to use with Jekyll
 
 

@@ -10,6 +10,7 @@ import {
 } from 'material-ui/styles/colors'; //greens
 
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -21,7 +22,7 @@ import Footer from '../containers/footer';
 injectTapEventPlugin();
 
 //style overrides
-const muiTheme = getMuiTheme(darkBaseTheme, {
+const darkMuiTheme = getMuiTheme(darkBaseTheme, {
   palette: {
     primary1Color: blueGrey800,
     primary2Color: green900,
@@ -36,17 +37,25 @@ const muiTheme = getMuiTheme(darkBaseTheme, {
   appBar: {
     height: 100
   }
-  });
+});
 
-export const App = (props) => (
-  <div>
-    <MuiThemeProvider muiTheme={muiTheme}>
+const lightMuiTheme = getMuiTheme(lightBaseTheme);
+
+export default class App {
+
+
+  render() {
+    return (
       <div>
-        <Header location={props.location}>
-          {props.children}
-        <Footer />
-      </Header>
+        <MuiThemeProvider muiTheme={darkMuiTheme}>
+          <div>
+            <Header location={this.props.location}>
+              {this.props.children}
+            <Footer />
+          </Header>
+          </div>
+        </MuiThemeProvider>
       </div>
-    </MuiThemeProvider>
-  </div>
-);
+    );
+  }
+}
