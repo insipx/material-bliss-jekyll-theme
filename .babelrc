@@ -3,7 +3,12 @@
   "plugins": ["material-ui"],
   "env": {
     "production": {
-      "presets": ["react-optimize"]
+      "presets": ["react-optimize"],
+      "plugins": [
+        "closure-elimination",
+        "transform-react-constant-elements",
+        "transform-react-inline-elements"
+      ]
     }
   }
 }
