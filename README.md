@@ -1,11 +1,10 @@
 # Material Theme for Jekyll!
-
+## DEMO: [code.liquidthink.net](http://www.code.liquidthink.net)
 #### created with React, Redux, React-Router and transpiled with Webpack.
 
 ##### All the awesomeness of Material UI without the hassle of JQuery and servers, built with the latest web technologies!
 
 #### Now Includes Extra Overengineeringness!
-#### DEMO: http://www.code.liquidthink.net
 
 Made with React and served statically and dynamically
 
@@ -19,6 +18,24 @@ Made with React and served statically and dynamically
 ```
 ./build-dev.sh
 ```
+### Features:
+- Two Themes: Light and Dark
+- Fully Responsive for most devices
+- Dynamic Fuzzy Search
+- Dynamic Project Page in a masonry layout built
+- The pros of dynamic webpages matched with the awesomeness of static Jekyll
+- Optimized (99/100 on testmysite by google) with Jekyll Assets and Webpack
+- included RESTful-like API (with [jekyll-react plugin](https://github.com/InsidiousMind/Jekyll-React))
+- Static or Dynamic Pages with just a frontmatter option
+- MORE TO COME
+
+### Screen Shots
+![Dark Theme](http://i.imgur.com/GfFoLXS.png)
+![Light Theme](http://i.imgur.com/cdIgtax.png)
+![Project Page](http://i.imgur.com/VnLqCpi.png)
+![Post](http://i.imgur.com/AcZ8nNi.png)
+
+
 ## Site Layout
 
 `./react-dev/pages`
@@ -37,7 +54,6 @@ Made with React and served statically and dynamically
 `const menuItems = { Home: '/', About: '/about/', Projects: '/projects/' };`
 and you want another entry, "Coding", with a path '/coding/' from the root url the object should look something like this :
 `const menuItems = { Home: '/', About: '/about/', Projects: '/projects/', Coding: '/coding'};`
-
 
 
 './react-dev/actions/index.js'
