@@ -44,13 +44,13 @@ npm run jekyll // in one terminal
 `./react-dev/pages`
 - These are static Jekyll components being rendered with react
 
-'./react-dev/helpers.js'
+`./react-dev/helpers.js`
 - these are global helpers. Right now all that is included are the static routes of you're site. Put all your static routes there (in 'staticRoutes' array), you don't need the full route just the base after your url So for example, if my posts are static and are at
  `http://www.example.com/posts/this-is-a-post.html`
  you just need "/posts/"
  this makes the loading of some parts of the site seem almost 'instant', while preserving the SEO of your site since Google can crawl the static content
 
-'./react-dev/components/menu_items.js'
+`./react-dev/components/menu_items.js`
 
 - This is where your menu items are rendered. If you want a new item, add an object to the Hashlist with it's corresponding path (from your root url) Javascript object. IE if it is:
 
@@ -59,7 +59,7 @@ and you want another entry, "Coding", with a path '/coding/' from the root url t
 `const menuItems = { Home: '/', About: '/about/', Projects: '/projects/', Coding: '/coding'};`
 
 
-'./react-dev/actions/index.js'
+`./react-dev/actions/index.js`
 - this is where the magic happens from the JSON our Jekyll plugins rendered ( Jekyll_pages_api and Jekyll-react)
 You're going to want to add your site url to the `ROOT_URL` variable
 EX:
