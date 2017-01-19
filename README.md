@@ -33,9 +33,20 @@ npm run jekyll // in one terminal
 - MORE TO COME
 
 ### Screen Shots
+
+Dark Theme
 ![Dark Theme](http://i.imgur.com/GfFoLXS.png)
+
+Light Theme
 ![Light Theme](http://i.imgur.com/cdIgtax.png)
+
+Dark Theme with Push out menu active
+![Dark Theme Push Out](http://i.imgur.com/xsjkszO.png)
+
+Project Page
 ![Project Page](http://i.imgur.com/VnLqCpi.png)
+
+Single Post
 ![Post](http://i.imgur.com/AcZ8nNi.png)
 
 
