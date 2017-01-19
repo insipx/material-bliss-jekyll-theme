@@ -94,6 +94,7 @@ any site configuration that you want to let React use, put under 'react' in your
  - [ ] make expanded search bar more responsive on mobile
  - [ ] create category pages
  - [ ] add pagination
+ - [ ] Make different post 'types' (IE Fullsize page)
  - [ ] make it easier to use with Jekyll
 
 

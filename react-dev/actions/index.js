@@ -3,6 +3,8 @@ import axios from 'axios';
 export const FETCH_POST = 'FETCH_POST';
 export const FETCH_PAGE = 'FETCH_PAGE';
 export const FETCH_POSTS = 'FETCH_POSTS';
+export const FETCH_POSTS_CATEGORY = 'FETCH_POSTS_CATEGORY';
+export const FETCH_POSTS_TAG = 'FETCH_POST_TAG';
 export const FETCH_SITE_INFO = 'FETCH_SITE_INFO';
 export const FETCH_PROJECTS = 'FETCH_PROJECTS';
 
@@ -33,6 +35,25 @@ export function fetchPost(title) {
   };
 }
 
+export function fetchPostsByCategory(category) {
+  return {
+    type: FETCH_POSTS_CATEGORY,
+    payload: {
+      promise: postsRequest,
+      category
+    }
+  };
+}
+
+export function fetchPostsByTag(tag) {
+  return {
+    type: FETCH_POSTS_TAG,
+    payload: {
+      promise: postsRequest,
+      tag
+    }
+  };
+}
 
 export function fetchPage(title, url) {
     const request = axios.get(`${ROOT_URL}${url}${title}.json`);
