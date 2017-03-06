@@ -1,8 +1,7 @@
 # Material Theme for Jekyll!
 ## DEMO: [code.liquidthink.net](http://www.code.liquidthink.net)
 #### created with React, Redux, React-Router and transpiled with Webpack.
-#### [Material-UI](https://github.com/callemall/material-ui)
-
+![travis-ci](https://api.travis-ci.org/InsidiousMind/material-bliss-jekyll-theme.svg?branch=master)
 
 Made with React and served statically and dynamically
 
