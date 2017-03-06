@@ -13,7 +13,7 @@ const files = {
 
 function renderStatic(template, file) {
     const html = html_beautify(renderToStaticMarkup(template));
-    fse.outputFile(file, html, (err) => {
+    fse.outputFileSync(file, html, (err) => {
       console.log(err);
     });
 }
@@ -28,12 +28,10 @@ renderStatic(<Default />, './src/_layouts/default.html');
 //to them
 _.forOwn(files, (key, value) => {
   const data = fse.readFileSync(key);
-  console.log(key);
   const fd = fse.openSync(key, 'w+');
-  const buffer = '---\nlayout: default\n---';
-  fse.writeFileSync(fd, buffer); //write layout
-  fse.appendFileSync(fd, data);
-  //written = fse.writeSync(fd, data, 0, data.length, buffer.length); //append data previously in file
+  const layout = '---\nlayout: default\n---\n';
+  fse.writeFileSync(fd, layout); //write layout
+  fse.writeSync(fd, data, 0, data.length, layout.length);
   fse.close(fd);
 });
 
