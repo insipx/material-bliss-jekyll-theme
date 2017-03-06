@@ -1,5 +1,4 @@
 
-
 assets:
   compress:
     css: false
@@ -29,4 +28,3 @@ assets:
     integrity: true
     automatic_img_size: true
     automatic_img_alt : true
-

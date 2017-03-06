@@ -8,7 +8,6 @@ import { //dark theme
   grey50,
   cyan500,
   //light theme
-  brown500,
   grey300, grey400
 } from 'material-ui/styles/colors'; //dark theme
 
@@ -82,6 +81,7 @@ const lightMuiTheme = getMuiTheme(null, {
   }
 });
 
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -93,7 +93,7 @@ export default class App extends Component {
       return true;
     }
   }
-  
+
   //push out menu for static post content
   getTheme = () => {
     if (this.state.dark) {

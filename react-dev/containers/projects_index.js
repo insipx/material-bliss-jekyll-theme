@@ -15,15 +15,21 @@ class ProjectsIndex extends Component {
     this.props.fetchProjects();
   }
   getMedia = (project) => {
-      if (project.image) {
+      if (project.cardImage && !project.cardTitle) {
         return (
-          <CardMedia
-            overlay={<CardTitle title="Cool Project" subtitle="hellya" />}
-          >
-            <img role="presentation" src={`${this.props.config.url}/${project.image}`} />
+          <CardMedia>
+            <img role="presentation" src={`${this.props.config.url}/${project.cardImage}`} />
         </CardMedia >
         );
-      }
+      } else if (project.cardImage && project.cardTitle) {
+        return (
+          <CardMedia
+            overlay={<CardTitle title={project.cardTitle} subtitle={project.cardSubtitle} />}
+          >
+            <img role="presentation" src={`${this.props.config.url}/${project.cardImage}`} />
+          </CardMedia>
+        );
+      } //if those values don't exist dont return
       return;
   }
   getAuthorHeader = (project) => {
@@ -34,15 +40,23 @@ class ProjectsIndex extends Component {
       }
       return;
   }
+  getProjectTitle = (project) => {
+      if (project.title && project.subtitle) {
+        return (
+        <CardTitle title={project.title} subtitle={project.subtitle} />
+        );
+      }
+      return;
+  }
 
   renderProjects() {
     return this.props.projects[1].map((project) => (
-        <div className="masonry-content" key={project.title}>
+        <div className="masonry-content" key={project.title || project.cardTitle}>
           <a href={project.homepage}>
             <Card>
                 {this.getAuthorHeader(project)}
                 {this.getMedia(project)}
-              <CardTitle title={project.title} subtitle={project.subtitle} />
+                {this.getProjectTitle(project)}
               <CardText> {project.description} </CardText>
             </Card>
         </a>

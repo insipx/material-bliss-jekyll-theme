@@ -44,6 +44,10 @@
   "dependencies": {
     "axios": "^0.15.3",
     "babel-cli": "^6.18.0",
+    "babel-plugin-closure-elimination": "^1.1.14",
+    "babel-plugin-constant-folding": "^1.0.1",
+    "babel-plugin-material-ui": "^0.3.0",
+    "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-1": "^6.16.0",
     "classnames": "^2.2.5",
     "css-loader": "^0.26.1",
@@ -52,7 +56,6 @@
     "ejs": "^2.5.5",
     "eslint-config-rallycoding": "^3.1.0",
     "flexboxgrid": "^6.3.1",
-    "fs": "0.0.1-security",
     "fs-extra": "^1.0.0",
     "fuzzy": "^0.1.3",
     "gzip": "^0.1.0",

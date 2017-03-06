@@ -4,6 +4,10 @@ v1.x branch. Release and bugfixes for this branch go here
 ## DEMO: [code.liquidthink.net](http://www.code.liquidthink.net)
 
 
+#### created with React, Redux, React-Router and transpiled with Webpack.
+![travis-ci](https://api.travis-ci.org/InsidiousMind/material-bliss-jekyll-theme.svg?branch=master)
+
+
 ### **in order to build:**
 #### for Production
 ```
@@ -90,6 +94,7 @@ any site configuration that you want to let React use, put under 'react' in your
  - [ ] make expanded search bar more responsive on mobile
  - [ ] create category pages
  - [ ] add pagination
+ - [ ] Make different post 'types' (IE Fullsize page)
  - [ ] make it easier to use with Jekyll
 
 

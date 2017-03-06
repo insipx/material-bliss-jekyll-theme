@@ -1,16 +1,21 @@
 import fuzzy from 'fuzzy';
-import { resolve, reject } from 'redux-simple-promise';
-import { FETCH_POSTS, FETCH_POST, FETCH_PAGE } from '../actions/index';
+import { resolve } from 'redux-simple-promise';
+import {
+  FETCH_POSTS,
+  FETCH_POST,
+  FETCH_PAGE,
+  FETCH_POSTS_CATEGORY,
+  FETCH_POSTS_TAG
+ } from '../actions/index';
 
-const INITIAL_STATE = { all: {}, post: {}, page: {} };
+const INITIAL_STATE = { all: {}, post: {}, page: {}, category: {} };
 
 export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
     case resolve(FETCH_POSTS): {
       const data = action.payload.data.entries;
       const payload = [];
-      //could use jsonQuery but that's overcomplicated...this is clearer
-      //still be cool if we did use jsonQuery
+
       if (typeof action.meta.term !== 'undefined') {
         const options = {
           pre: '',
@@ -25,7 +30,6 @@ export default function (state = INITIAL_STATE, action) {
             payload.push(el.original);
           }
         });
-
         return { ...state, all: payload };
       }
 
@@ -35,6 +39,27 @@ export default function (state = INITIAL_STATE, action) {
         }
       });
       return { ...state, all: payload };
+    }
+
+    case resolve(FETCH_POSTS_CATEGORY): {
+      const data = action.payload.data.entries;
+      const payload = [];
+      data.map((el) => {
+        if (el.meta.categories.includes(action.meta.category)) {
+          payload.push(el);
+        }
+      });
+      return { ...state, category: payload };
+    }
+    case resolve(FETCH_POSTS_TAG): {
+      const data = action.payload.data.entries;
+      const payload = [];
+      data.map((el) => {
+        if (el.tags.includes(action.meta.tag)) {
+          payload.push(el);
+        }
+      });
+      return { ...state, category: payload };
     }
 
     case resolve(FETCH_POST): {
