@@ -16,7 +16,7 @@ export default function (state = INITIAL_STATE, action) {
       const data = action.payload.data.entries;
       const payload = [];
 
-      if (typeof action.meta.term !== 'undefined') {
+      if (typeof action.meta.term !== 'undefined' && action.meta.term.length >= 1) {
         const options = {
           pre: '',
           post: '',
