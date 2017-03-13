@@ -22,7 +22,7 @@ const renderChips = (data) => data.map((tag) => (
 
 const createMarkup = (post) => {
   let body = post.body.split(' ');
-  body = body.slice(1, 50);
+  body = body.slice(0, 50);
   body = body.join(' ');
   return `${body}...`;
 };
