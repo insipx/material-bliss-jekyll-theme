@@ -17,19 +17,6 @@ You can find the source code for Jekyll at
 
 Here's a demo of syntax highlighting!
 
-{% highlight zsh %}
-demo_mod1_generator() {
-  local mod="$1" ice="$2"
-
-  # Content, no hyper-links
-  reply=( "Hello World from ${ZUI[YELLOW]}ZUI${ZUI[COLOR_END]}! Module $mod, instance $ice." )
-
-  # Non-selectable lines   Hops to jump with [ and ]   Local anchors
-  reply2=( )               reply3=( 1 )                reply4=( )
-}
-{% endhighlight %}
-
-
 ```
 #!/usr/bin/python3
 
