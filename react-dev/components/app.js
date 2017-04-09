@@ -116,7 +116,9 @@ export default class App extends Component {
   handleToggle = () => {
     this.setState({ dark: !this.state.dark });
   }
+
   //modify children prop with theme state so that it re-renders on-screen
+ 
   renderChildren = () => Children.map(this.props.children, (child) => cloneElement(child, [{
         themeState: this.state.dark
       }]));

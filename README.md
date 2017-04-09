@@ -93,6 +93,7 @@ any site configuration that you want to let React use, put under 'react' in your
  - [ ] add pagination
  - [ ] Make different post 'types' (IE Fullsize page)
  - [ ] make it easier to use with Jekyll
+ - [ ] Save theme in sites cookies
 
 
 ### Contribution
