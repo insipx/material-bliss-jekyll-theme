@@ -13,9 +13,7 @@ const files = {
 
 function renderStatic(template, file) {
     const html = html_beautify(renderToStaticMarkup(template));
-    fse.outputFileSync(file, html, (err) => {
-      console.log(err);
-    });
+    fse.outputFileSync(file, html);
 }
 
 renderStatic(<Post />, files.post);
